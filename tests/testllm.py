@@ -16,26 +16,28 @@ from rich.text import Text
 from rich.theme import Theme
 
 # Palette
-ACCENT = "#7aa2f7"    # soft blue
-USER = "#7dcfff"      # cyan
-AI = "#9ece6a"        # green
-WARM = "#e0af68"      # amber
-PINK = "#bb9af7"      # violet
-ERROR = "#f7768e"     # rose
-MUTED = "#565f89"     # slate
-TEXT = "#c0caf5"      # soft white
+ACCENT = "#7aa2f7"  # soft blue
+USER = "#7dcfff"  # cyan
+AI = "#9ece6a"  # green
+WARM = "#e0af68"  # amber
+PINK = "#bb9af7"  # violet
+ERROR = "#f7768e"  # rose
+MUTED = "#565f89"  # slate
+TEXT = "#c0caf5"  # soft white
 
 console = Console(
-    theme=Theme({
-        "accent": f"bold {ACCENT}",
-        "user": f"bold {USER}",
-        "ai": f"bold {AI}",
-        "warm": WARM,
-        "pink": PINK,
-        "error": f"bold {ERROR}",
-        "muted": MUTED,
-        "body": TEXT,
-    })
+    theme=Theme(
+        {
+            "accent": f"bold {ACCENT}",
+            "user": f"bold {USER}",
+            "ai": f"bold {AI}",
+            "warm": WARM,
+            "pink": PINK,
+            "error": f"bold {ERROR}",
+            "muted": MUTED,
+            "body": TEXT,
+        }
+    )
 )
 
 
@@ -56,7 +58,9 @@ def print_status(device, temperature, tokens):
     grid.add_column()
 
     grid.add_row("status", Text("model loaded", style=f"bold {AI}"))
-    grid.add_row("device", Text("CUDA GPU" if is_cuda else "CPU", style=AI if is_cuda else WARM))
+    grid.add_row(
+        "device", Text("CUDA GPU" if is_cuda else "CPU", style=AI if is_cuda else WARM)
+    )
     grid.add_row("temperature", Text(str(temperature), style=WARM))
     grid.add_row("max characters", Text(str(tokens), style=PINK))
 
@@ -81,10 +85,10 @@ def print_help():
     console.print()
 
 
-def generate(prompt, model, stoi, itos, device, tokens, temperature):
+def generate(prompt, model, stoi, itos, device, tokens, temperature, top_k):
     console.print(Text("tiny ", style=f"bold {AI}"), end="")
 
-    stream_response(prompt, model, stoi, itos, device, tokens, temperature)
+    stream_response(prompt, model, stoi, itos, device, tokens, temperature, top_k)
 
     console.print(Rule(style=MUTED, characters="·"))
 
@@ -104,32 +108,82 @@ def load_model():
 
 
 @torch.inference_mode()
-def stream_response(prompt, model, stoi, itos, device, max_new_tokens, temperature):
-    encoded = [stoi[ch] for ch in prompt if ch in stoi]
+def stream_response(
+    prompt,
+    model,
+    stoi,
+    itos,
+    device,
+    max_new_tokens,
+    temperature,
+    top_k=10,
+):
+    formatted_prompt = f"User: {prompt}\nTinyLLM:"
+
+    encoded = [stoi[ch] for ch in formatted_prompt if ch in stoi]
+
     if not encoded:
-        console.print(
-            "Prompt has no characters in the training vocabulary.",
-            style=WARM,
-            markup=False,
-        )
+        console.print("Unable to encode the prompt.", markup=False)
         return
-    context = torch.tensor([encoded], dtype=torch.long, device=device)
+
+    context = torch.tensor(
+        [encoded],
+        dtype=torch.long,
+        device=device,
+    )
+
+    generated = ""
+
     for _ in range(max_new_tokens):
-        logits = model(context[:, -model.block_size:])
+        logits = model(context[:, -model.block_size :])
+
         if isinstance(logits, tuple):
             logits = logits[0]
-        logits = logits[:, -1, :] / temperature
-        probs = torch.softmax(logits, dim=-1)
-        next_token = torch.multinomial(probs, num_samples=1)
+
+        next_logits = logits[:, -1, :]
+
+        # Greedy decoding when temperature is 0.
+        if temperature == 0:
+            next_token = torch.argmax(
+                next_logits,
+                dim=-1,
+                keepdim=True,
+            )
+        else:
+            next_logits = next_logits / temperature
+            if top_k > 0:
+                values, _ = torch.topk(next_logits, min(top_k, next_logits.size(-1)))
+                next_logits = next_logits.masked_fill(
+                    next_logits < values[:, [-1]], float("-inf")
+                )
+            probs = torch.softmax(next_logits, dim=-1)
+            next_token = torch.multinomial(probs, num_samples=1)
+
+        next_char = itos[next_token.item()]
         context = torch.cat((context, next_token), dim=1)
-        console.print(
-            itos[next_token.item()],
-            end="",
-            style=TEXT,
-            markup=False,
-            highlight=False,
-        )
-    console.print()
+        generated += next_char
+
+        # Stop at the first conversation boundary.
+        markers = ("<END>", "\nUser:", "\nTinyLLM:")
+        matches = [
+            (generated.find(marker), marker)
+            for marker in markers
+            if marker in generated
+        ]
+
+        if matches:
+            position, marker = min(matches, key=lambda item: item[0])
+            generated = generated[:position]
+            break
+
+    generated = generated.lstrip()
+
+    console.print(
+        generated or "(No response generated.)",
+        style=TEXT,
+        markup=False,
+        highlight=False,
+    )
 
 
 def main():
@@ -137,22 +191,36 @@ def main():
         description="TinyGPT: a local character-level language model",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("--prompt", type=str, default=None,
-                        help="Generate from a prompt and exit")
-    parser.add_argument("--tokens", type=int, default=300,
-                        help="Maximum new characters to generate")
-    parser.add_argument("--temperature", type=float, default=0.8,
-                        help="Sampling temperature; lower is more predictable")
+    parser.add_argument(
+        "--prompt", type=str, default=None, help="Generate from a prompt and exit"
+    )
+    parser.add_argument(
+        "--tokens", type=int, default=200, help="Maximum new characters to generate"
+    )
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=0.6,
+        help="Sampling temperature; lower is more predictable",
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=10,
+        help="Sample only from the k most likely characters; 0 disables",
+    )
     args = parser.parse_args()
 
     if args.tokens < 1:
         parser.error("--tokens must be at least 1")
-    if args.temperature <= 0:
+    if args.temperature < 0:
         parser.error("--temperature must be greater than 0")
 
     print_header()
 
-    with console.status(f"[{ACCENT}]Loading checkpoint...[/]", spinner="dots", spinner_style=ACCENT):
+    with console.status(
+        f"[{ACCENT}]Loading checkpoint...[/]", spinner="dots", spinner_style=ACCENT
+    ):
         try:
             model, stoi, itos, device = load_model()
         except Exception as exc:
@@ -164,7 +232,16 @@ def main():
 
     if args.prompt is not None:
         try:
-            generate(args.prompt, model, stoi, itos, device, args.tokens, args.temperature)
+            generate(
+                args.prompt,
+                model,
+                stoi,
+                itos,
+                device,
+                args.tokens,
+                args.temperature,
+                args.top_k,
+            )
         except KeyboardInterrupt:
             console.print()
             console.print("Generation interrupted.", style=WARM)
@@ -186,11 +263,22 @@ def main():
                 console.print("Enter a prompt first.", style=WARM)
                 continue
 
-            generate(prompt, model, stoi, itos, device, args.tokens, args.temperature)
+            generate(
+                prompt,
+                model,
+                stoi,
+                itos,
+                device,
+                args.tokens,
+                args.temperature,
+                args.top_k,
+            )
 
         except KeyboardInterrupt:
             console.print()
-            console.print("Interrupted. Enter another prompt or type 'q' to leave.", style=WARM)
+            console.print(
+                "Interrupted. Enter another prompt or type 'q' to leave.", style=WARM
+            )
         except EOFError:
             console.print()
             console.print("Goodbye.", style=MUTED)
