@@ -1,0 +1,39 @@
+{
+  "out_dir": "C:\\Users\\WIN11\\Desktop\\JonathanGomes\\TinyLLM\\model\\v2\\bpe",
+  "tokenizer": "bpe",
+  "vocab_size": 488,
+  "n_params": 3475432,
+  "best_val_loss": 2.6491433697969455,
+  "iters": 8000,
+  "batch_size_final": 96,
+  "oom_events": 0,
+  "elapsed_s": 664.3,
+  "peak_gpu_memory_gb": 0.976,
+  "config": {
+    "block_size": 256,
+    "n_embd": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dropout": 0.1
+  },
+  "args": {
+    "tokenizer": "bpe",
+    "bpe_merges": 400,
+    "iters": 8000,
+    "batch_size": 96,
+    "block_size": 256,
+    "eval_interval": 250,
+    "lr": 0.0006,
+    "min_lr_frac": 0.1,
+    "warmup_iters": 200,
+    "n_embd": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dropout": 0.1,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "evaluate_batch": 64,
+    "out_dir": null,
+    "smoke": false
+  }
+}

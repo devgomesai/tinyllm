@@ -227,11 +227,13 @@ def main():
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr)
     best_val = float("inf")
     log_path = out_dir / "training_log.csv"
+    out_dir.mkdir(parents=True, exist_ok=True)
     with open(log_path, "w", newline="", encoding="utf-8") as f:
         csv.writer(f).writerow(
             ["step", "train_loss", "val_loss", "lr", "elapsed_s", "oom_events"])
 
     def save_checkpoint(path: Path, val_loss, step, final):
+        path.parent.mkdir(parents=True, exist_ok=True)
         torch.save(
             {
                 "model_state_dict": model.state_dict(),
@@ -291,10 +293,20 @@ def main():
                 best_val = val_loss
                 save_checkpoint(out_dir / "best.pt", val_loss, step, final=False)
                 print(f"  best checkpoint saved (val {val_loss:.4f})")
+            # Recreate the output folder + log header if the directory was
+            # deleted (e.g. artifacts moved while the run was in progress).
+            out_dir.mkdir(parents=True, exist_ok=True)
+            new_log = not log_path.exists()
             with open(log_path, "a", newline="", encoding="utf-8") as f:
-                csv.writer(f).writerow(
-                    [step, f"{train_loss:.4f}", f"{val_loss:.4f}", f"{lr_current:.6f}",
-                     f"{time.time() - t0:.1f}", oom_events])
+                writer = csv.writer(f)
+                if new_log:
+                    writer.writerow(
+                        ["step", "train_loss", "val_loss", "lr", "elapsed_s",
+                         "oom_events"])
+                writer.writerow(
+                    [step, f"{train_loss:.4f}", f"{val_loss:.4f}",
+                     f"{lr_current:.6f}", f"{time.time() - t0:.1f}",
+                     oom_events])
 
         indices = torch.randint(n_train, (batch,), generator=rng).tolist()
         try:

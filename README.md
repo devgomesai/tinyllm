@@ -11,7 +11,10 @@ text, nothing more. Do not rely on anything it says.
 
 ## Table of Contents
 
+- [Quick start: full workflow](#quick-start-full-workflow)
+- [Train and test cheat sheet](#train-and-test-cheat-sheet)
 - [What is new in 2.0](#what-is-new-in-20)
+- [Char vs BPE models](#char-vs-bpe-models)
 - [Architecture](#architecture)
 - [Dataset](#dataset)
 - [Data preparation](#data-preparation)
@@ -24,6 +27,99 @@ text, nothing more. Do not rely on anything it says.
 - [GPU requirements](#gpu-requirements)
 - [Known limitations](#known-limitations)
 - [Technologies](#technologies)
+
+## Quick start: full workflow
+
+Run these from the project root, in order. Each stage depends on the previous
+one; commands are idempotent and seeded, so rerunning them reproduces the same
+artifacts.
+
+```powershell
+# 0. One-time environment setup (Python 3.13 + PyTorch CUDA build)
+uv sync
+
+# 1. Build the dataset: parse -> expand -> clean -> stratified splits
+uv run python -m trainer.dataset --seed 42
+
+# 2. Run the automated test suite (48 checks; exits non-zero on failure)
+uv run python tests/test_pipeline.py
+
+# 3. Train the recommended model (char tokenizer, 8k steps)
+uv run python trainer/train.py --tokenizer char --iters 8000
+#    -> model/v2/char/best.pt   (also: training_log.csv, train_summary.json)
+
+# 4a. Score it against the held-out suites and compare with the preserved baseline
+uv run python tests/evaluate.py --model model/v2/char/best.pt
+# 4b. (score the preserved baseline the same way, for comparison)
+uv run python tests/evaluate.py --model model/v1/mini_gpt_v2.pt
+
+# 5a. Chat with it interactively
+uv run python tests/testllm.py --model model/v2/char/best.pt
+# 5b. or one prompt and exit
+uv run python tests/testllm.py --model model/v2/char/best.pt --prompt "Explain how a neural network learns" --temperature 0.7 --tokens 200
+# 5c. fully deterministic (greedy) generation
+uv run python tests/testllm.py --model model/v2/char/best.pt --greedy --prompt "What is 7 + 8?"
+```
+
+Optional variants:
+
+```powershell
+# Train the experimental BPE model (larger batch because BPE tokens are ~4x longer)
+uv run python trainer/train.py --tokenizer bpe --iters 8000 --batch-size 96
+uv run python tests/evaluate.py --model model/v2/bpe/best.pt
+uv run python tests/testllm.py --model model/v2/bpe/best.pt
+
+# Retrain the baseline recipe without touching the original checkpoints
+# (writes a copy you can compare against; use --out-dir to keep runs apart)
+uv run python trainer/train.py --tokenizer char --iters 8000 --n-layers 6 --block-size 128 --out-dir model/v2/char_baseline_recipe
+```
+
+Small runs to check the plumbing before a real training (2 minutes, ~0.5 GB):
+
+```powershell
+uv run python trainer/train.py --smoke --tokenizer char   # 30-iter smoke run
+uv run python trainer/train.py --smoke --tokenizer bpe
+```
+
+## Train and test cheat sheet
+
+Each run gets its own `--out-dir` so nothing is overwritten.
+
+```powershell
+# Train: char model (recommended)
+uv run python trainer/train.py --tokenizer char --iters 8000 --out-dir model/v2/char_run3
+
+# Train: BPE model
+uv run python trainer/train.py --tokenizer bpe --iters 8000 --batch-size 96 --out-dir model/v2/bpe_run2
+
+# Quick plumbing check (30 iters)
+uv run python trainer/train.py --smoke --tokenizer char --out-dir model/smoke_char
+
+# Score a checkpoint on the held-out suites (writes eval_results/*.json)
+uv run python tests/evaluate.py --model model/v2/char_run3/best.pt
+
+# Chat (interactive, no --prompt)
+uv run python tests/testllm.py --model model/v2/char_run3/best.pt
+
+# One answer, sampled with a fixed temperature
+uv run python tests/testllm.py --model model/v2/char_run3/best.pt --prompt "What is a neuron?" --temperature 0.7 --tokens 200
+
+# One answer, deterministic
+uv run python tests/testllm.py --model model/v2/char_run3/best.pt --greedy --prompt "What is a neuron?"
+```
+
+To compare runs, check `best_val_loss` in each `train_summary.json` and the
+metrics in the matching `eval_results/` JSON. Use the same `--seed` and dataset.
+
+## Which stage writes what
+
+| Stage | Command | Output |
+| --- | --- | --- |
+| dataset | `python -m trainer.dataset` | `data/processed/{train,val,test}.txt`, `stats.json`, `pipeline_report.json` |
+| tests | `python tests/test_pipeline.py` | console report (48 assertions) |
+| training | `trainer/train.py` | `model/v2/<tokenizer>/best.pt`, `final.pt`, `training_log.csv`, `train_summary.json` |
+| evaluation | `tests/evaluate.py` | `eval_results/eval_<model>_<tokenizer>_<timestamp>.json` |
+| chat | `tests/testllm.py` | terminal replies (no artifacts) |
 
 ## What is new in 2.0
 
@@ -51,6 +147,30 @@ split, random wholesale windows, single metric):
   (memorization, rewording, unseen topics, reasoning, arithmetic) plus
   train/val/test losses, with JSON reports.
 
+## Char vs BPE models
+
+Both models use the same transformer. They differ only in how text is split
+into tokens, the units the model predicts.
+
+| | Char model (`--tokenizer char`) | BPE model (`--tokenizer bpe`) |
+| --- | --- | --- |
+| Token | one character (`T`, `o`, ` `, `?`) | a learned chunk, e.g. `neural`, `ing`, ` the` |
+| Vocabulary | 86 characters from the corpus | 86 characters + 400 learned merges + 2 specials = 488 |
+| Tokenizer training | none, the mapping is fixed | greedy merges of the most frequent adjacent pair, from scratch in `trainer/tokenizer.py` |
+| Sequence length | long: each character is a token | short: chunks cover more text per token |
+| Strength | simple; any text in the alphabet is representable | a 256-token window holds more text; learns common word pieces |
+| Weakness | the model must learn spelling letter by letter | each chunk is seen less often; more chances to overfit small data |
+| Batch default | 32 | 96 (shorter sequences use less memory per example) |
+| Best val loss here | 1.4700 (step 1250) | 2.6491 (step 500) |
+
+Read the loss columns carefully. Char and BPE losses are per token, and their
+tokens are different units, so the numbers cannot be ranked against each
+other. Compare models with `tests/evaluate.py`, which scores the same held-out
+questions for both.
+
+The shipped recommendation is the char model: it is the one with measured
+held-out results. The BPE model is kept as an experiment.
+
 ## Architecture
 
 ```
@@ -74,8 +194,8 @@ TinyGPT (trainer/model.py)
 | Model | Vocab | d_model | heads | layers | block | Parameters |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | Baseline (`model/v1/mini_gpt_v2.pt`, v1 recipe) | 86 chars | 256 | 8 | 6 | 128 | 4,815,958 |
-| char (new pipeline, char) | TBD | 256 | 8 | 4 | 256 | TBD |
-| bpe (new pipeline, BPE) | TBD | 256 | 8 | 4 | 256 | TBD |
+| char (new pipeline, char) | 86 chars | 256 | 8 | 4 | 256 | 3,269,206 |
+| bpe (new pipeline, BPE, 400 merges) | 488 | 256 | 8 | 4 | 256 | 3,475,432 |
 
 Dataset prompt + answer always fits the 256-token context of the v2 models
 (the longest formatted example in the final corpus is below that limit), so
@@ -131,7 +251,9 @@ This does, deterministically:
 6. Write `data/processed/{train,val,test}.txt` + `stats.json` +
    `pipeline_report.json`.
 
-Split sizes (seed 42, final corpus): TBD — see `data/processed/stats.json`.
+Split sizes (seed 42, final corpus): 3,560 train (1,664 fact groups) /
+449 val (207 groups) / 462 test (219 groups), 4,471 examples total —
+see `data/processed/stats.json` for the per-category breakdown.
 
 ## Training
 
@@ -139,9 +261,14 @@ Split sizes (seed 42, final corpus): TBD — see `data/processed/stats.json`.
 # character-level model (recommended first)
 uv run python trainer/train.py --tokenizer char --iters 8000
 
-# BPE (experimental)
-uv run python trainer/train.py --tokenizer bpe --bpe-merges 400 --iters 8000
+# BPE (experimental; larger batch because BPE sequences are ~4x shorter in tokens)
+uv run python trainer/train.py --tokenizer bpe --iters 8000 --batch-size 96
 ```
+
+Validation loss bottoms long before the run end (~step 1250 in practice, see
+Results), so iterations afterwards are just `best.pt` insurance. Each run
+writes to `model/v2/<tokenizer>/` by default — pass a distinct `--out-dir`
+when re-running, otherwise the existing run's files are overwritten.
 
 Both write to `model/v2/char/` or `model/v2/bpe/` and save `best.pt`
 (lowest validation loss), `final.pt`, `train_summary.json` and
@@ -162,7 +289,7 @@ overwritten.
 | `--dropout` | 0.1 | regularization |
 | `--eval-interval` | 250 | steps between evals |
 | `--seed` | 42 | all randomness |
-| `--out-dir` | `model/exp_<tokenizer>` | checkpoint directory |
+| `--out-dir` | `model/v2/<tokenizer>` | checkpoint directory |
 
 Notes:
 
@@ -226,7 +353,73 @@ it, so the reply never invents a new conversation turn.
 
 ## Results
 
-See `eval_results/*.json` for full numbers. Summary table: TBD after final runs.
+Full JSON reports live in `eval_results/` and `model/v2/*/train_summary.json`.
+All generation metrics use
+greedy decoding (deterministic) on the same fixed suites (seed 42).
+
+Baseline (`model/v1/mini_gpt_v2.pt`, v1 recipe on `data.txt`, greedy):
+
+| Metric | Value |
+| --- | ---: |
+| Train answer-loss (examples fitting ctx 128) | 0.3022 |
+| Val answer-loss | 0.4821 |
+| Held-out test answer-loss | 0.3505 |
+| A memorization token-F1 | 0.791 |
+| B reworded token-F1 | 0.856* |
+| Unseen sequences exact-match | 0.000 |
+| Program-output prediction (token-F1) | 0.000 |
+| Unseen arithmetic (both operands >= 10) exact-match | 0.026 |
+| **Seen** large-band arithmetic exact-match | **0.971** |
+| Unseen-topic relevant-word rate | 0.000 |
+
+The pattern is pure memorization: 97% on arithmetic operand combinations it
+saw during training, ~0% on held-out combinations, fluent-but-off-topic text
+for unseen topics ("What is a sundial?" -> "Australia is the smallest
+continent."). Caveat: the baseline was trained on ~90% of the raw corpus by
+character position, so its B suite (and part of the test split) was already
+seen; the v2 models are trained only on the clean train split, making the B
+comparison conservative in the baseline's favor.
+
+char v2 (`model/v2/char/best.pt`, best val at step 1250/8000, greedy):
+
+| Metric | Value |
+| --- | ---: |
+| Val answer-loss (all 449 val examples fit ctx 256) | 1.3444 |
+| Held-out test answer-loss | 1.2249 |
+| A memorization token-F1 | 0.232 |
+| B reworded token-F1 | 0.123 |
+| Unseen arithmetic (both operands >= 10) exact-match | 0.051 |
+| Reserved data.txt large arithmetic exact-match | 0.200 |
+| Unseen sequences exact-match | 0.000 |
+| Unseen number comparison exact-match | 0.000 |
+| Program-output token-F1 | 0.080 |
+| Unseen-topic relevant-word rate | 0.000 |
+| Clean terminations (ends with `<END>`, no truncation/malformed) | 100% |
+
+The v2 char loss numbers are not a regression against the baseline: the
+baseline's 0.4821 val loss was measured on data it had effectively seen, and
+the v2 model has never seen its val set. What the new run buys is *honest*
+held-out measurement — and it shows the model is still far from generalizing
+(answers are fluent-looking but factually wrong outside training content, e.g.
+"What is a capacitor?" -> "A copatoin is a partor stores keys..."). 100% of
+generations terminate cleanly within budget, which the old pipeline did not
+guarantee. Longer training does not help here: validation loss bottomed at
+step 1250 and rose monotonically afterwards (classic small-corpus overfitting),
+which is why `best.pt` — not `final.pt` — is the shipped checkpoint. A
+repeat run with the same 8k recipe reproduced the pattern: best val 1.4700,
+so no further steps were warranted.
+
+BPE v2 (`model/v2/bpe/best.pt`, 8000 iters, 400 merges, 488-token vocab):
+
+| Metric | Value |
+| --- | ---: |
+| Best val answer-loss | 2.6491 (step 500) |
+| Peak GPU memory / OOM events | 0.98 GB / 0 |
+
+BPE's val loss is not comparable to char's: the token vocabulary differs, so
+per-token loss is measured over different units. Its best step is 500, far
+earlier than char's 1250, and it rose after that. Generation metrics
+(`tests/evaluate.py`) have not been run on it yet.
 
 ## Checkpoint
 
@@ -246,13 +439,12 @@ TinyLLM/
 │   ├── data_v1.txt            # v1 corpus, reference only
 │   └── processed/             # generated splits + stats (do not edit)
 ├── model/
-│   ├── VERSIONS.md            # manifest of every checkpoint
 │   ├── v1/                    # preserved baselines (never overwritten)
 │   │   ├── mini_gpt_v1.pt     # v1 exact checkpoint (data_v1.txt)
 │   │   └── mini_gpt_v2.pt     # v1-recipe checkpoint (data.txt)
 │   └── v2/                    # TinyGPT 2.0 experiments
-│       ├── char/              # best.pt, final.pt, logs
-│       └── bpe/               # best.pt, final.pt, logs
+│       ├── char/              # best.pt, train_summary.json, training_log.csv
+│       └── bpe/               # best.pt, final.pt, train_summary.json, training_log.csv
 ├── trainer/
 │   ├── dataset.py             # parse, clean, group, split, write
 │   ├── data_expansion.py      # authored + programmatic expansion corpus
