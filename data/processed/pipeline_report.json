@@ -1,0 +1,71 @@
+{
+  "train": {
+    "examples": 3560,
+    "chars": 396534,
+    "groups": 1664,
+    "by_category": {
+      "arithmetic": 629,
+      "python": 236,
+      "general": 2069,
+      "nn": 298,
+      "torch": 81,
+      "identity": 31,
+      "python_exercise": 36,
+      "cnn": 33,
+      "transformer": 23,
+      "llm": 20,
+      "ml": 21,
+      "english": 27,
+      "debug": 24,
+      "program_output": 20,
+      "followup": 12
+    }
+  },
+  "val": {
+    "examples": 449,
+    "chars": 49215,
+    "groups": 207,
+    "by_category": {
+      "general": 257,
+      "arithmetic": 82,
+      "nn": 38,
+      "torch": 12,
+      "python": 27,
+      "identity": 7,
+      "python_exercise": 3,
+      "cnn": 4,
+      "transformer": 3,
+      "ml": 4,
+      "english": 4,
+      "debug": 3,
+      "program_output": 3,
+      "followup": 2
+    }
+  },
+  "test": {
+    "examples": 462,
+    "chars": 48574,
+    "groups": 219,
+    "by_category": {
+      "general": 258,
+      "arithmetic": 117,
+      "python": 29,
+      "nn": 33,
+      "torch": 8,
+      "python_exercise": 3,
+      "cnn": 3,
+      "transformer": 2,
+      "llm": 2,
+      "ml": 1,
+      "english": 3,
+      "program_output": 2,
+      "followup": 1
+    }
+  },
+  "raw_examples": 3432,
+  "expanded_examples": 1039,
+  "dedupe": {
+    "kept": 4471
+  },
+  "unique_groups": 2090
+}

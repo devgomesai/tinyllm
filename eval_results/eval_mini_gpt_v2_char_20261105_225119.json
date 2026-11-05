@@ -1,0 +1,419 @@
+{
+  "checkpoint": "model\\mini_gpt_v2.pt",
+  "created": "2026-11-05T22:50:52",
+  "tokenizer": "char",
+  "vocab_size": 86,
+  "block_size": 128,
+  "device": "cuda",
+  "seed": 42,
+  "greedy_metrics": true,
+  "params": 4815958,
+  "loss_train": {
+    "mean_answer_loss": 0.3022,
+    "examples_used": 167,
+    "examples_skipped_context": 83
+  },
+  "loss_val": {
+    "mean_answer_loss": 0.4821,
+    "examples_used": 324,
+    "examples_skipped_context": 125
+  },
+  "loss_test": {
+    "mean_answer_loss": 0.3505,
+    "examples_used": 340,
+    "examples_skipped_context": 122
+  },
+  "A_memorization": {
+    "n": 40,
+    "completion_rate": 1.0,
+    "end_rate": 1.0,
+    "max_tokens_rate": 0.0,
+    "marker_rate": 0.0,
+    "error_rate": 0.0,
+    "repetition_rate": 0.0,
+    "malformed_rate": 0.0,
+    "mean_token_f1": 0.791
+  },
+  "B_rewording": {
+    "n": 40,
+    "completion_rate": 1.0,
+    "end_rate": 1.0,
+    "max_tokens_rate": 0.0,
+    "marker_rate": 0.0,
+    "error_rate": 0.0,
+    "repetition_rate": 0.0,
+    "malformed_rate": 0.0,
+    "mean_token_f1": 0.856,
+    "reworded_count": 40
+  },
+  "C_unseen_topics": {
+    "n": 10,
+    "completion_rate": 1.0,
+    "end_rate": 1.0,
+    "max_tokens_rate": 0.0,
+    "marker_rate": 0.0,
+    "error_rate": 0.0,
+    "repetition_rate": 0.0,
+    "malformed_rate": 0.0,
+    "topic_word_rate": 0.0
+  },
+  "D_reasoning": {
+    "unseen_sequences": {
+      "n": 13,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.0,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.537
+    },
+    "program_output": {
+      "n": 12,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "mean_token_f1": 0.0
+    },
+    "number_comparison": {
+      "n": 13,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.0,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.196
+    }
+  },
+  "E_arithmetic": {
+    "small_10_29": {
+      "n": 13,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.077,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.453
+    },
+    "mid_30_99": {
+      "n": 13,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.0,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.364
+    },
+    "large_100_plus": {
+      "n": 13,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.0,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.383
+    },
+    "overall": {
+      "exact_match": 0.026,
+      "n": 39
+    },
+    "reserved_data_txt_large": {
+      "n": 35,
+      "completion_rate": 1.0,
+      "end_rate": 1.0,
+      "max_tokens_rate": 0.0,
+      "marker_rate": 0.0,
+      "error_rate": 0.0,
+      "repetition_rate": 0.0,
+      "malformed_rate": 0.0,
+      "exact_match": 0.971,
+      "unparseable_rate": 0.0,
+      "mean_token_f1": 0.989
+    }
+  },
+  "samples": {
+    "A_memorization": [
+      {
+        "question": "Please tell me, how can I learn faster?",
+        "reference": "Practice daily, build small projects, and review what you got wrong.",
+        "generated": " Practice daily, build small projects, and review what you got wrong.",
+        "status": "end"
+      },
+      {
+        "question": "What's the capital of the United Kingdom?",
+        "reference": "The capital of the United Kingdom is London.",
+        "generated": " The capital of the United Kingdom is London.",
+        "status": "end"
+      },
+      {
+        "question": "What do you know about uv?",
+        "reference": "The uv tool is a fast Python package and project manager.",
+        "generated": " The uv tool is a fast Python package and project manager.",
+        "status": "end"
+      },
+      {
+        "question": "Please tell me, how do I improve a run-on sentence?",
+        "reference": "Split it into two sentences or join the ideas with a comma and a joining word.",
+        "generated": " I may reach my length limit or predict the end marker too early.",
+        "status": "end"
+      }
+    ],
+    "B_rewording": [
+      {
+        "question": "Simply put, what does this mean: How do I save a model in PyTorch",
+        "reference": "Use torch.save on the model's state_dict.",
+        "generated": " Use torch.save on the model's state_dict.",
+        "status": "end"
+      },
+      {
+        "question": "For a beginner, You are welcome?",
+        "reference": "Thank you. Is there anything else you want to ask?",
+        "generated": " No. I can only be improved when my creator trains me with better data.",
+        "status": "end"
+      },
+      {
+        "question": "In one short reply, what's a linked list",
+        "reference": "It is a chain of nodes where each node holds a value and points to the next node.",
+        "generated": " It is a chain of nodes where each node holds a value and points to the next node.",
+        "status": "end"
+      },
+      {
+        "question": "Help me understand: Can you explain what perplexity is",
+        "reference": "Perplexity is the exponential of the loss. It shows how uncertain the model is about the next token.",
+        "generated": " Perplexity is the exponential of the loss. It shows how uncertain the model inted to lay.",
+        "status": "end"
+      }
+    ],
+    "C_unseen_topics": [
+      {
+        "question": "What is a capacitor?",
+        "reference": "",
+        "generated": " A cepter is the set of animple gat can add dataset has language models.",
+        "status": "end"
+      },
+      {
+        "question": "What is a sundial?",
+        "reference": "",
+        "generated": " Australia is the smallest continent.",
+        "status": "end"
+      },
+      {
+        "question": "What is a database transaction?",
+        "reference": "",
+        "generated": " It is a whole not thing about an example.",
+        "status": "end"
+      },
+      {
+        "question": "What is a lighthouse?",
+        "reference": "",
+        "generated": " A list is an ordered collection of items that you can change, like [1, 2, 3].",
+        "status": "end"
+      }
+    ],
+    "D_unseen_sequences": [
+      {
+        "question": "What is the next number: 11, 24, 37, 50?",
+        "reference": "The next number is 63, because each number goes up by 13.",
+        "generated": " The next number is 5.",
+        "status": "end"
+      },
+      {
+        "question": "What is the next number: 5, 19, 33, 47?",
+        "reference": "The next number is 61, because each number goes up by 14.",
+        "generated": " The next number is 20, because each number goes up by 5.",
+        "status": "end"
+      },
+      {
+        "question": "What is the next number: 21, 36, 51, 66?",
+        "reference": "The next number is 81, because each number goes up by 15.",
+        "generated": " The next number is 20, because each number goes up by 5.",
+        "status": "end"
+      },
+      {
+        "question": "What is the next number: 19, 35, 51, 67?",
+        "reference": "The next number is 83, because each number goes up by 16.",
+        "generated": " The next number is 20, because each number goes up by 5.",
+        "status": "end"
+      }
+    ],
+    "D_program_output": [
+      {
+        "question": "What does print(14 + 27) show in Python?",
+        "reference": "It prints 41.",
+        "generated": " Write print(\"Hello, World!\") and run the file.",
+        "status": "end"
+      },
+      {
+        "question": "What does print(19 - 8) show in Python?",
+        "reference": "It prints 11.",
+        "generated": " Use the print function, for example print(\"Hello\").",
+        "status": "end"
+      },
+      {
+        "question": "What does print(6 * 7) show in Python?",
+        "reference": "It prints 42.",
+        "generated": " Torch.save on the model's state_dict.",
+        "status": "end"
+      },
+      {
+        "question": "What does print(\"dog\" * 3) show in Python?",
+        "reference": "It prints dogdogdog.",
+        "generated": " Python is a popular programming language known for simple and readable code.",
+        "status": "end"
+      }
+    ],
+    "D_number_comparison": [
+      {
+        "question": "Which is bigger, 34 or 125?",
+        "reference": "125 is bigger than 34.",
+        "generated": " Double 15 is 30.",
+        "status": "end"
+      },
+      {
+        "question": "Which is bigger, 328 or 51?",
+        "reference": "328 is bigger than 51.",
+        "generated": " 25 + 25 is 50.",
+        "status": "end"
+      },
+      {
+        "question": "Which is bigger, 33 or 792?",
+        "reference": "792 is bigger than 33.",
+        "generated": " 6 times 7 is 42.",
+        "status": "end"
+      },
+      {
+        "question": "Which is bigger, 89 or 189?",
+        "reference": "189 is bigger than 89.",
+        "generated": " Good times 9 is 7.",
+        "status": "end"
+      }
+    ],
+    "E_small_10_29": [
+      {
+        "question": "What is 13 times 10?",
+        "reference": "What is 13 times 10 is 130.",
+        "generated": " 10 times 10 is 100.",
+        "status": "end"
+      },
+      {
+        "question": "What is 18 + 17?",
+        "reference": "What is 18 + 17 is 35.",
+        "generated": " 1 + 15 is 25.",
+        "status": "end"
+      },
+      {
+        "question": "What is 14 times 13?",
+        "reference": "What is 14 times 13 is 182.",
+        "generated": " 12 times 12 is 144.",
+        "status": "end"
+      },
+      {
+        "question": "What is 27 times 12?",
+        "reference": "What is 27 times 12 is 324.",
+        "generated": " 12 times 12 is 144.",
+        "status": "end"
+      }
+    ],
+    "E_mid_30_99": [
+      {
+        "question": "What is 43 - 41?",
+        "reference": "What is 43 - 41 is 2.",
+        "generated": " The square of 4 is 16.",
+        "status": "end"
+      },
+      {
+        "question": "What is 75 - 42?",
+        "reference": "What is 75 - 42 is 33.",
+        "generated": " 5 - 50 is 25.",
+        "status": "end"
+      },
+      {
+        "question": "What is 63 times 35?",
+        "reference": "What is 63 times 35 is 2205.",
+        "generated": " 3 times 4 is 12.",
+        "status": "end"
+      },
+      {
+        "question": "What is 88 + 98?",
+        "reference": "What is 88 + 98 is 186.",
+        "generated": " 8 times 9 is 72.",
+        "status": "end"
+      }
+    ],
+    "E_large_100_plus": [
+      {
+        "question": "What is 750 times 31?",
+        "reference": "What is 750 times 31 is 23250.",
+        "generated": " 10 times 10 is 100.",
+        "status": "end"
+      },
+      {
+        "question": "What is 846 + 41?",
+        "reference": "What is 846 + 41 is 887.",
+        "generated": " 4 + 8 is 15.",
+        "status": "end"
+      },
+      {
+        "question": "What is 573 - 58?",
+        "reference": "What is 573 - 58 is 515.",
+        "generated": " 50 - 25 is 25.",
+        "status": "end"
+      },
+      {
+        "question": "What is 755 times 98?",
+        "reference": "What is 755 times 98 is 73990.",
+        "generated": " 8 times 9 is 72.",
+        "status": "end"
+      }
+    ],
+    "E_reserved": [
+      {
+        "question": "What does 12 times 12 equal?",
+        "reference": "12 times 12 is 144.",
+        "generated": " 12 times 12 is 144.",
+        "status": "end"
+      },
+      {
+        "question": "Please tell me, what is 25 + 25?",
+        "reference": "25 + 25 is 50.",
+        "generated": " 25 + 25 is 50.",
+        "status": "end"
+      },
+      {
+        "question": "Calculate 100 divided by 10",
+        "reference": "100 divided by 10 is 10.",
+        "generated": " 100 divided by 10 is 10.",
+        "status": "end"
+      },
+      {
+        "question": "Can I ask, what is 50 - 25?",
+        "reference": "50 - 25 is 25.",
+        "generated": " 50 - 25 is 25.",
+        "status": "end"
+      }
+    ]
+  }
+}

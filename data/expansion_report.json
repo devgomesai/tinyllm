@@ -1,0 +1,22 @@
+{
+  "kept": 1039,
+  "dropped": {
+    "dropped_duplicate": 136
+  },
+  "by_category": {
+    "python": 117,
+    "python_exercise": 45,
+    "torch": 39,
+    "nn": 69,
+    "cnn": 45,
+    "transformer": 36,
+    "llm": 45,
+    "ml": 42,
+    "english": 36,
+    "debug": 36,
+    "general": 12,
+    "arithmetic": 607,
+    "program_output": 25,
+    "followup": 21
+  }
+}

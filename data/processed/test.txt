@@ -1,0 +1,1847 @@
+User: Thank you
+TinyLLM: You are welcome!
+<END>
+
+User: Tell me what INSERT does
+TinyLLM: The INSERT statement adds a new row to a table.
+<END>
+
+User: Can you give medical advice?
+TinyLLM: No. Please ask a doctor for health advice.
+<END>
+
+User: What does 12 times 12 equal?
+TinyLLM: 12 times 12 is 144.
+<END>
+
+User: I was wondering, who created Python?
+TinyLLM: Guido van Rossum created Python, and it was first released in 1991.
+<END>
+
+User: What is 10 percent of 200?
+TinyLLM: 10 percent of 200 is 20.
+<END>
+
+User: Can I ask, what is an encoder?
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: I was wondering, why does more data help?
+TinyLLM: More varied data gives the model more patterns to learn and reduces memorization.
+<END>
+
+User: Please tell me, what is 25 + 25?
+TinyLLM: 25 + 25 is 50.
+<END>
+
+User: Tell me how to move a model to the GPU
+TinyLLM: Call model.to("cuda") or model.cuda().
+<END>
+
+User: Do you remember what we talked about before?
+TinyLLM: No. Each prompt starts fresh, and I do not keep a memory of old chats.
+<END>
+
+User: What's Jupyter Notebook?
+TinyLLM: It is a tool for writing and running code in small cells alongside notes.
+<END>
+
+User: Tell me about a hard drive
+TinyLLM: A hard drive stores data on spinning disks and is slower than an SSD.
+<END>
+
+User: What is validation loss?
+TinyLLM: It is the loss measured on held-out data that the model does not train on.
+<END>
+
+User: Tell me about try and except
+TinyLLM: The try block runs code that might fail, and except catches the error.
+<END>
+
+User: Are you able to learn new facts right now?
+TinyLLM: No. I can only learn when my creator trains me again with new data.
+<END>
+
+User: Define character-level tokenization
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: Can I ask, what is type conversion?
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: Calculate 100 divided by 10
+TinyLLM: 100 divided by 10 is 10.
+<END>
+
+User: What is a hard drive?
+TinyLLM: A hard drive stores data on spinning disks and is slower than an SSD.
+<END>
+
+User: Can I ask, what is try and except?
+TinyLLM: The try block runs code that might fail, and except catches the error.
+<END>
+
+User: Please describe an interpreter
+TinyLLM: An interpreter reads and runs code line by line. Python usually uses one.
+<END>
+
+User: Can I ask, what is 50 - 25?
+TinyLLM: 50 - 25 is 25.
+<END>
+
+User: I was wondering, can you tell me the news?
+TinyLLM: No. I cannot access the internet, so I do not know current events.
+<END>
+
+User: Why do you repeat yourself?
+TinyLLM: Small models often fall into loops because they have seen too little varied text.
+<END>
+
+User: How was your training done?
+TinyLLM: I was trained to predict the next character in a text file, again and again.
+<END>
+
+User: Hi, how are you?
+TinyLLM: I am doing well, thank you. How are you?
+<END>
+
+User: What's version control?
+TinyLLM: Version control tracks changes to files so you can review and restore older versions.
+<END>
+
+User: Can I ask, what does git add do?
+TinyLLM: It moves changes into the staging area so they are included in the next commit.
+<END>
+
+User: Are you able to solve hard math?
+TinyLLM: No. I can only handle very simple arithmetic, and sometimes I get it wrong.
+<END>
+
+User: What's 100 + 200?
+TinyLLM: 100 + 200 is 300.
+<END>
+
+User: I was wondering, what is the chemical symbol for gold?
+TinyLLM: The symbol for gold is Au.
+<END>
+
+User: What's the capital of India?
+TinyLLM: The capital of India is New Delhi.
+<END>
+
+User: Are you able to access my files?
+TinyLLM: No. I cannot open or read any files on your computer.
+<END>
+
+User: What's 50 - 25?
+TinyLLM: 50 - 25 is 25.
+<END>
+
+User: I was wondering, can you give medical advice?
+TinyLLM: No. Please ask a doctor for health advice.
+<END>
+
+User: Can you explain what a folder is?
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: What is a folder?
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: Tell me about an API
+TinyLLM: An API is a set of rules that lets one program talk to another.
+<END>
+
+User: Explain a hard drive
+TinyLLM: A hard drive stores data on spinning disks and is slower than an SSD.
+<END>
+
+User: Please tell me, why do we have day and night?
+TinyLLM: Day and night happen because the Earth spins on its axis.
+<END>
+
+User: How can I make you answer better?
+TinyLLM: Use clear questions that are similar to my training examples.
+<END>
+
+User: What can you help me with?
+TinyLLM: I can try to help with basic Python, AI ideas, simple math, and general knowledge.
+<END>
+
+User: Which currency does India use?
+TinyLLM: The currency of India is the rupee.
+<END>
+
+User: No problem
+TinyLLM: Great. Let me know if you need anything else.
+<END>
+
+User: Define version control
+TinyLLM: Version control tracks changes to files so you can review and restore older versions.
+<END>
+
+User: Can I ask, what is the capital of Brazil?
+TinyLLM: The capital of Brazil is Brasilia.
+<END>
+
+User: Can you explain what a language model is?
+TinyLLM: A language model predicts the next piece of text given the text before it.
+<END>
+
+User: Do you know any fun facts?
+TinyLLM: Octopuses have three hearts and blue blood.
+<END>
+
+User: Please describe print debugging
+TinyLLM: It means adding print statements to see what values your code has at each step.
+<END>
+
+User: Tell me how to load a saved model in PyTorch
+TinyLLM: Create the model, then call load_state_dict with the saved weights.
+<END>
+
+User: Thanks a lot, TinyLLM
+TinyLLM: You are very welcome.
+<END>
+
+User: What do you know about character-level tokenization?
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: What does SQL stand for?
+TinyLLM: SQL stands for Structured Query Language.
+<END>
+
+User: What do you know about an encoder?
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: Can I ask, is Python free?
+TinyLLM: Yes. Python is free and open source.
+<END>
+
+User: What is the capital of Brazil?
+TinyLLM: The capital of Brazil is Brasilia.
+<END>
+
+User: What is open source?
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: Please describe an operating system
+TinyLLM: It is the main software that manages hardware and runs programs, like Windows or Linux.
+<END>
+
+User: Can you explain what perplexity is?
+TinyLLM: Perplexity is the exponential of the loss. It shows how uncertain the model is about the next token.
+<END>
+
+User: What is a float?
+TinyLLM: A float is a number with a decimal point, such as 3.14.
+<END>
+
+User: Please describe word-level tokenization
+TinyLLM: It treats each whole word as a token, which needs a much larger vocabulary.
+<END>
+
+User: Calculate 8 times 9
+TinyLLM: 8 times 9 is 72.
+<END>
+
+User: What is 10 times 10?
+TinyLLM: 10 times 10 is 100.
+<END>
+
+User: What's 100 divided by 10?
+TinyLLM: 100 divided by 10 is 10.
+<END>
+
+User: Who was the first person on the Moon?
+TinyLLM: Neil Armstrong was the first person to walk on the Moon in 1969.
+<END>
+
+User: I was wondering, what can you help me with?
+TinyLLM: I can try to help with basic Python, AI ideas, simple math, and general knowledge.
+<END>
+
+User: Please tell me, how do I debug my code?
+TinyLLM: Read the error message, check the line it points to, and test small parts step by step.
+<END>
+
+User: What is 6 times 7?
+TinyLLM: 6 times 7 is 42.
+<END>
+
+User: Can I ask, what is validation loss?
+TinyLLM: It is the loss measured on held-out data that the model does not train on.
+<END>
+
+User: I was wondering, what is 100 divided by 10?
+TinyLLM: 100 divided by 10 is 10.
+<END>
+
+User: Is Python free?
+TinyLLM: Yes. Python is free and open source.
+<END>
+
+User: I was wondering, what is 6 times 7?
+TinyLLM: 6 times 7 is 42.
+<END>
+
+User: What do you know about an API?
+TinyLLM: An API is a set of rules that lets one program talk to another.
+<END>
+
+User: I was wondering, what is 4 + 5?
+TinyLLM: 4 + 5 is 9.
+<END>
+
+User: What's 4 + 5?
+TinyLLM: 4 + 5 is 9.
+<END>
+
+User: What is Jupyter Notebook?
+TinyLLM: It is a tool for writing and running code in small cells alongside notes.
+<END>
+
+User: Tell me about GitHub
+TinyLLM: GitHub is a website that hosts Git repositories so people can share and collaborate on code.
+<END>
+
+User: Are you able to give legal advice?
+TinyLLM: No. Please ask a qualified lawyer for legal advice.
+<END>
+
+User: Can I ask, what is a float?
+TinyLLM: A float is a number with a decimal point, such as 3.14.
+<END>
+
+User: I was wondering, why do we have day and night?
+TinyLLM: Day and night happen because the Earth spins on its axis.
+<END>
+
+User: What does 8 times 9 equal?
+TinyLLM: 8 times 9 is 72.
+<END>
+
+User: Please tell me, what is machine learning?
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: Name the capital of Japan
+TinyLLM: The capital of Japan is Tokyo.
+<END>
+
+User: Explain open source
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: Why does more data help?
+TinyLLM: More varied data gives the model more patterns to learn and reduces memorization.
+<END>
+
+User: Please tell me, what is indexing?
+TinyLLM: Indexing means picking an item by its position. In Python, the first position is 0.
+<END>
+
+User: What is indexing?
+TinyLLM: Indexing means picking an item by its position. In Python, the first position is 0.
+<END>
+
+User: What's a folder?
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: Can you explain what an optimizer is?
+TinyLLM: An optimizer is the algorithm that updates the weights using the gradients.
+<END>
+
+User: What's 25 + 25?
+TinyLLM: 25 + 25 is 50.
+<END>
+
+User: Can I ask, where did your knowledge come from?
+TinyLLM: It came from the small training file that my creator wrote for me.
+<END>
+
+User: Can you explain what a terminal is?
+TinyLLM: A terminal is a text window where you type commands to control your computer.
+<END>
+
+User: Can I ask, what is GitHub?
+TinyLLM: GitHub is a website that hosts Git repositories so people can share and collaborate on code.
+<END>
+
+User: What does 10 times 10 equal?
+TinyLLM: 10 times 10 is 100.
+<END>
+
+User: Tell me about a float
+TinyLLM: A float is a number with a decimal point, such as 3.14.
+<END>
+
+User: Name the currency of Japan
+TinyLLM: The currency of Japan is the yen.
+<END>
+
+User: Tell me about binary search
+TinyLLM: Binary search finds an item in a sorted list by repeatedly halving the search range.
+<END>
+
+User: Tell me about a gigabyte
+TinyLLM: A gigabyte is about one billion bytes.
+<END>
+
+User: I was wondering, what is the color of the sky?
+TinyLLM: The sky looks blue because air scatters blue light more than other colors.
+<END>
+
+User: I was wondering, who was the first person on the Moon?
+TinyLLM: Neil Armstrong was the first person to walk on the Moon in 1969.
+<END>
+
+User: What is a label?
+TinyLLM: A label is the correct answer attached to an example.
+<END>
+
+User: How do I learn PyTorch?
+TinyLLM: Start with tensors, then build a small network, and train it on a simple dataset.
+<END>
+
+User: Which city is the capital of Brazil?
+TinyLLM: The capital of Brazil is Brasilia.
+<END>
+
+User: Where did your knowledge come from?
+TinyLLM: It came from the small training file that my creator wrote for me.
+<END>
+
+User: Please describe programming
+TinyLLM: Programming is writing instructions that tell a computer what to do.
+<END>
+
+User: Which city is the capital of the United Kingdom?
+TinyLLM: The capital of the United Kingdom is London.
+<END>
+
+User: Can I ask, what is the Great Wall of China?
+TinyLLM: It is a very long series of walls built in ancient China for defense.
+<END>
+
+User: I can't do this
+TinyLLM: You can. Take it one small step at a time.
+<END>
+
+User: Please tell me, who created Python?
+TinyLLM: Guido van Rossum created Python, and it was first released in 1991.
+<END>
+
+User: I am bored
+TinyLLM: Try learning a small thing, like writing a short Python program.
+<END>
+
+User: Please tell me, what version are you?
+TinyLLM: I am a small experimental version of TinyLLM.
+<END>
+
+User: Tell me about a prediction
+TinyLLM: A prediction is the output that a model produces for a given input.
+<END>
+
+User: You are welcome
+TinyLLM: Thank you. Is there anything else you want to ask?
+<END>
+
+User: Define a library
+TinyLLM: A library is a collection of ready-made code that you can use in your programs.
+<END>
+
+User: Calculate 10 + 15
+TinyLLM: 10 + 15 is 25.
+<END>
+
+User: What is 25 + 25?
+TinyLLM: 25 + 25 is 50.
+<END>
+
+User: What's a float?
+TinyLLM: A float is a number with a decimal point, such as 3.14.
+<END>
+
+User: What does git add do?
+TinyLLM: It moves changes into the staging area so they are included in the next commit.
+<END>
+
+User: Please tell me, how do I learn PyTorch?
+TinyLLM: Start with tensors, then build a small network, and train it on a simple dataset.
+<END>
+
+User: I was wondering, what is NumPy?
+TinyLLM: NumPy is a Python library for fast math on arrays.
+<END>
+
+User: Calculate 20 divided by 4
+TinyLLM: 20 divided by 4 is 5.
+<END>
+
+User: Welcome back
+TinyLLM: Thank you! Good to talk again.
+<END>
+
+User: Please tell me, what does SQL stand for?
+TinyLLM: SQL stands for Structured Query Language.
+<END>
+
+User: Happy birthday!
+TinyLLM: Thank you! I do not have birthdays, but I appreciate the kind words.
+<END>
+
+User: What's a linked list?
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: Tell me what you are
+TinyLLM: I am a tiny character-level language model that predicts the next character in a text.
+<END>
+
+User: I was wondering, what is a prediction?
+TinyLLM: A prediction is the output that a model produces for a given input.
+<END>
+
+User: What's the square root of 144?
+TinyLLM: The square root of 144 is 12.
+<END>
+
+User: Define a float
+TinyLLM: A float is a number with a decimal point, such as 3.14.
+<END>
+
+User: What's an API?
+TinyLLM: An API is a set of rules that lets one program talk to another.
+<END>
+
+User: What's machine learning?
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: Define try and except
+TinyLLM: The try block runs code that might fail, and except catches the error.
+<END>
+
+User: I was wondering, what is the square root of 144?
+TinyLLM: The square root of 144 is 12.
+<END>
+
+User: Explain what INSERT does
+TinyLLM: The INSERT statement adds a new row to a table.
+<END>
+
+User: Can I ask, what does git pull do?
+TinyLLM: It downloads new commits from the remote repository and merges them into your branch.
+<END>
+
+User: What is NumPy?
+TinyLLM: NumPy is a Python library for fast math on arrays.
+<END>
+
+User: Name the currency of India
+TinyLLM: The currency of India is the rupee.
+<END>
+
+User: I was wondering, what is 12 times 12?
+TinyLLM: 12 times 12 is 144.
+<END>
+
+User: Please tell me, why does a small dataset cause problems?
+TinyLLM: A small dataset makes a model memorize examples instead of learning general patterns.
+<END>
+
+User: What's open source?
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: Can I ask, what is open source?
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: Please tell me, how do I read a file in Python?
+TinyLLM: Use with open("file.txt") as f: and then call f.read().
+<END>
+
+User: Calculate 10 times 10
+TinyLLM: 10 times 10 is 100.
+<END>
+
+User: I was wondering, what is Jupyter Notebook?
+TinyLLM: It is a tool for writing and running code in small cells alongside notes.
+<END>
+
+User: What's the color of the sky?
+TinyLLM: The sky looks blue because air scatters blue light more than other colors.
+<END>
+
+User: Please help me
+TinyLLM: I will try. Tell me what you need help with.
+<END>
+
+User: Please tell me, where did your knowledge come from?
+TinyLLM: It came from the small training file that my creator wrote for me.
+<END>
+
+User: What is type conversion?
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: Can you tell me the news?
+TinyLLM: No. I cannot access the internet, so I do not know current events.
+<END>
+
+User: Why do you exist?
+TinyLLM: My purpose is to answer simple questions and to be a hands-on way to study small language models.
+<END>
+
+User: Can I ask, why does a small dataset cause problems?
+TinyLLM: A small dataset makes a model memorize examples instead of learning general patterns.
+<END>
+
+User: What is the color of the sky?
+TinyLLM: The sky looks blue because air scatters blue light more than other colors.
+<END>
+
+User: I was wondering, what is an API?
+TinyLLM: An API is a set of rules that lets one program talk to another.
+<END>
+
+User: Name the capital of India
+TinyLLM: The capital of India is New Delhi.
+<END>
+
+User: Tell me about validation loss
+TinyLLM: It is the loss measured on held-out data that the model does not train on.
+<END>
+
+User: Why do we have day and night?
+TinyLLM: Day and night happen because the Earth spins on its axis.
+<END>
+
+User: I was wondering, what does git add do?
+TinyLLM: It moves changes into the staging area so they are included in the next commit.
+<END>
+
+User: Can I ask, how old are you?
+TinyLLM: I am very new. I was trained recently by Jonathan Gomes.
+<END>
+
+User: Please tell me, who was the first person on the Moon?
+TinyLLM: Neil Armstrong was the first person to walk on the Moon in 1969.
+<END>
+
+User: What is an encoder?
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: What's validation loss?
+TinyLLM: It is the loss measured on held-out data that the model does not train on.
+<END>
+
+User: What's binary search?
+TinyLLM: Binary search finds an item in a sorted list by repeatedly halving the search range.
+<END>
+
+User: What's new?
+TinyLLM: Nothing much on my side. What is new with you?
+<END>
+
+User: I was wondering, who was Marie Curie?
+TinyLLM: Marie Curie was a scientist who studied radioactivity and won two Nobel Prizes.
+<END>
+
+User: Good evening!
+TinyLLM: Good evening! Ready for some questions?
+<END>
+
+User: What's GitHub?
+TinyLLM: GitHub is a website that hosts Git repositories so people can share and collaborate on code.
+<END>
+
+User: I was wondering, how do I save a model in PyTorch?
+TinyLLM: Use torch.save on the model's state_dict.
+<END>
+
+User: What is version control?
+TinyLLM: Version control tracks changes to files so you can review and restore older versions.
+<END>
+
+User: Can I ask, how many planets are in the solar system?
+TinyLLM: There are eight planets in the solar system.
+<END>
+
+User: What should I do when I am stuck?
+TinyLLM: Take a short break, explain the problem out loud, and test one small thing at a time.
+<END>
+
+User: Please tell me, what happens if the learning rate is too low?
+TinyLLM: Training becomes very slow and may get stuck.
+<END>
+
+User: I was wondering, what is a library?
+TinyLLM: A library is a collection of ready-made code that you can use in your programs.
+<END>
+
+User: What happens if the learning rate is too low?
+TinyLLM: Training becomes very slow and may get stuck.
+<END>
+
+User: Name a sorting algorithm
+TinyLLM: Bubble sort, merge sort, and quicksort are well-known sorting algorithms.
+<END>
+
+User: Tell me about Marie Curie
+TinyLLM: Marie Curie was a scientist who studied radioactivity and won two Nobel Prizes.
+<END>
+
+User: Explain how to load a saved model in PyTorch
+TinyLLM: Create the model, then call load_state_dict with the saved weights.
+<END>
+
+User: What is character-level tokenization?
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: Would you say that you are a person?
+TinyLLM: No. I am a program, not a person.
+<END>
+
+User: What is an API?
+TinyLLM: An API is a set of rules that lets one program talk to another.
+<END>
+
+User: Explain what str does
+TinyLLM: The str function converts a value to a string.
+<END>
+
+User: Please describe a compiler
+TinyLLM: A compiler translates source code into machine code before the program runs.
+<END>
+
+User: Can you explain what a model is?
+TinyLLM: A model is a program with learned numbers that makes predictions from input.
+<END>
+
+User: Tell me about a library
+TinyLLM: A library is a collection of ready-made code that you can use in your programs.
+<END>
+
+User: What's 10 percent of 200?
+TinyLLM: 10 percent of 200 is 20.
+<END>
+
+User: Can I ask, what is the color of the sky?
+TinyLLM: The sky looks blue because air scatters blue light more than other colors.
+<END>
+
+User: Please tell me, who wrote Romeo and Juliet?
+TinyLLM: William Shakespeare wrote Romeo and Juliet.
+<END>
+
+User: How do I save a model in PyTorch?
+TinyLLM: Use torch.save on the model's state_dict.
+<END>
+
+User: Please tell me, what is an odd number?
+TinyLLM: An odd number leaves a remainder of 1 when divided by 2.
+<END>
+
+User: Please describe gradient descent
+TinyLLM: It is a method that updates weights a little in the direction that lowers the loss.
+<END>
+
+User: Please describe an infinite loop
+TinyLLM: It is a loop that never stops because its condition never becomes False.
+<END>
+
+User: Tell me about a block size
+TinyLLM: The block size is the number of tokens in each training sequence, also called context length.
+<END>
+
+User: Please describe dropout
+TinyLLM: Dropout randomly turns off some units during training to reduce overfitting.
+<END>
+
+User: Who wrote Romeo and Juliet?
+TinyLLM: William Shakespeare wrote Romeo and Juliet.
+<END>
+
+User: What do you know about a block size?
+TinyLLM: The block size is the number of tokens in each training sequence, also called context length.
+<END>
+
+User: What does 100 + 200 equal?
+TinyLLM: 100 + 200 is 300.
+<END>
+
+User: What version are you?
+TinyLLM: I am a small experimental version of TinyLLM.
+<END>
+
+User: Can you explain what a README is?
+TinyLLM: A README is a file that explains what a project is and how to use it.
+<END>
+
+User: What's the Great Wall of China?
+TinyLLM: It is a very long series of walls built in ancient China for defense.
+<END>
+
+User: Hey
+TinyLLM: Hey! Ask me anything about programming, AI, or science.
+<END>
+
+User: Can you explain what a decorator is?
+TinyLLM: A decorator is a function that wraps another function to add extra behavior.
+<END>
+
+User: Please tell me, what is a block size?
+TinyLLM: The block size is the number of tokens in each training sequence, also called context length.
+<END>
+
+User: What is 12 times 12?
+TinyLLM: 12 times 12 is 144.
+<END>
+
+User: I was wondering, what is the Great Wall of China?
+TinyLLM: It is a very long series of walls built in ancient China for defense.
+<END>
+
+User: What's an encoder?
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: Calculate 25 + 25
+TinyLLM: 25 + 25 is 50.
+<END>
+
+User: What do you know about a prediction?
+TinyLLM: A prediction is the output that a model produces for a given input.
+<END>
+
+User: I was wondering, how many planets are in the solar system?
+TinyLLM: There are eight planets in the solar system.
+<END>
+
+User: What's 10 + 15?
+TinyLLM: 10 + 15 is 25.
+<END>
+
+User: What is 10 + 15?
+TinyLLM: 10 + 15 is 25.
+<END>
+
+User: What's 10 times 10?
+TinyLLM: 10 times 10 is 100.
+<END>
+
+User: Please tell me, how do I handle errors in Python?
+TinyLLM: Put risky code in a try block and handle problems in an except block.
+<END>
+
+User: Name the capital of Australia
+TinyLLM: The capital of Australia is Canberra.
+<END>
+
+User: Can I ask, how do I debug my code?
+TinyLLM: Read the error message, check the line it points to, and test small parts step by step.
+<END>
+
+User: I was wondering, what version are you?
+TinyLLM: I am a small experimental version of TinyLLM.
+<END>
+
+User: What's 6 times 7?
+TinyLLM: 6 times 7 is 42.
+<END>
+
+User: Can you explain what a primary key is?
+TinyLLM: A primary key is a column whose values uniquely identify each row.
+<END>
+
+User: What's a block size?
+TinyLLM: The block size is the number of tokens in each training sequence, also called context length.
+<END>
+
+User: What is the chemical symbol for gold?
+TinyLLM: The symbol for gold is Au.
+<END>
+
+User: I was wondering, what is version control?
+TinyLLM: Version control tracks changes to files so you can review and restore older versions.
+<END>
+
+User: Please tell me, is Python free?
+TinyLLM: Yes. Python is free and open source.
+<END>
+
+User: Please tell me, what is 10 times 10?
+TinyLLM: 10 times 10 is 100.
+<END>
+
+User: Why does a small dataset cause problems?
+TinyLLM: A small dataset makes a model memorize examples instead of learning general patterns.
+<END>
+
+User: Can I ask, how do I save a model in PyTorch?
+TinyLLM: Use torch.save on the model's state_dict.
+<END>
+
+User: Please tell me, what is the square root of 144?
+TinyLLM: The square root of 144 is 12.
+<END>
+
+User: Please tell me, what is a label?
+TinyLLM: A label is the correct answer attached to an example.
+<END>
+
+User: What is 100 divided by 10?
+TinyLLM: 100 divided by 10 is 10.
+<END>
+
+User: Tell me what str does
+TinyLLM: The str function converts a value to a string.
+<END>
+
+User: Can I ask, what is 100 + 200?
+TinyLLM: 100 + 200 is 300.
+<END>
+
+User: Tell me about the first person on the Moon
+TinyLLM: Neil Armstrong was the first person to walk on the Moon in 1969.
+<END>
+
+User: What do you know about a label?
+TinyLLM: A label is the correct answer attached to an example.
+<END>
+
+User: I was wondering, how do I read a file in Python?
+TinyLLM: Use with open("file.txt") as f: and then call f.read().
+<END>
+
+User: What does 10 + 15 equal?
+TinyLLM: 10 + 15 is 25.
+<END>
+
+User: Can you explain what indentation in Python is?
+TinyLLM: Python uses spaces at the start of lines to show which code belongs together.
+<END>
+
+User: How long is your context window?
+TinyLLM: I can look at the previous 128 characters when I predict the next one.
+<END>
+
+User: Which computer do you run on?
+TinyLLM: I train and run on an NVIDIA RTX 3060 GPU with 12 GB of memory.
+<END>
+
+User: I was wondering, how do I learn PyTorch?
+TinyLLM: Start with tensors, then build a small network, and train it on a simple dataset.
+<END>
+
+User: Explain machine learning
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: Tell me about machine learning
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: Tell me about a folder
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: What is a library?
+TinyLLM: A library is a collection of ready-made code that you can use in your programs.
+<END>
+
+User: Please tell me, what is a folder?
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: Tell me how to import a module
+TinyLLM: Use the import keyword, for example import math.
+<END>
+
+User: What is 50 - 25?
+TinyLLM: 50 - 25 is 25.
+<END>
+
+User: I was wondering, what is 10 percent of 200?
+TinyLLM: 10 percent of 200 is 20.
+<END>
+
+User: Can I ask, what is a linked list?
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: What is a linked list?
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: What does 25 + 25 equal?
+TinyLLM: 25 + 25 is 50.
+<END>
+
+User: Calculate 4 + 5
+TinyLLM: 4 + 5 is 9.
+<END>
+
+User: Can you explain what a foreign key is?
+TinyLLM: A foreign key is a column that links a row to a row in another table.
+<END>
+
+User: What is 100 + 200?
+TinyLLM: 100 + 200 is 300.
+<END>
+
+User: What's try and except?
+TinyLLM: The try block runs code that might fail, and except catches the error.
+<END>
+
+User: Explain type conversion
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: Can you explain what bias in AI is?
+TinyLLM: Bias in AI is unfair behavior that comes from unbalanced or flawed training data.
+<END>
+
+User: That was helpful
+TinyLLM: I am glad it helped.
+<END>
+
+User: Calculate 100 + 200
+TinyLLM: 100 + 200 is 300.
+<END>
+
+User: What do you know about open source?
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: Calculate 50 - 25
+TinyLLM: 50 - 25 is 25.
+<END>
+
+User: Tell me about an encoder
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: Can I ask, what should I do when I am stuck?
+TinyLLM: Take a short break, explain the problem out loud, and test one small thing at a time.
+<END>
+
+User: Explain NumPy
+TinyLLM: NumPy is a Python library for fast math on arrays.
+<END>
+
+User: Can I ask, who wrote Romeo and Juliet?
+TinyLLM: William Shakespeare wrote Romeo and Juliet.
+<END>
+
+User: Can you explain what Windows is?
+TinyLLM: Windows is an operating system made by Microsoft.
+<END>
+
+User: Please tell me, can you give medical advice?
+TinyLLM: No. Please ask a doctor for health advice.
+<END>
+
+User: What's NumPy?
+TinyLLM: NumPy is a Python library for fast math on arrays.
+<END>
+
+User: How do I debug my code?
+TinyLLM: Read the error message, check the line it points to, and test small parts step by step.
+<END>
+
+User: What's indexing?
+TinyLLM: Indexing means picking an item by its position. In Python, the first position is 0.
+<END>
+
+User: Tell me about Jupyter Notebook
+TinyLLM: It is a tool for writing and running code in small cells alongside notes.
+<END>
+
+User: I was wondering, how can I make you answer better?
+TinyLLM: Use clear questions that are similar to my training examples.
+<END>
+
+User: What is try and except?
+TinyLLM: The try block runs code that might fail, and except catches the error.
+<END>
+
+User: What is binary search?
+TinyLLM: Binary search finds an item in a sorted list by repeatedly halving the search range.
+<END>
+
+User: How do I read a file in Python?
+TinyLLM: Use with open("file.txt") as f: and then call f.read().
+<END>
+
+User: Tell me about version control
+TinyLLM: Version control tracks changes to files so you can review and restore older versions.
+<END>
+
+User: Who is your developer?
+TinyLLM: My creator is Jonathan Gomes.
+<END>
+
+User: What is a prediction?
+TinyLLM: A prediction is the output that a model produces for a given input.
+<END>
+
+User: Define binary search
+TinyLLM: Binary search finds an item in a sorted list by repeatedly halving the search range.
+<END>
+
+User: Can you explain what a boolean is?
+TinyLLM: A boolean is a value that is either True or False.
+<END>
+
+User: What is machine learning?
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: I was wondering, what does git pull do?
+TinyLLM: It downloads new commits from the remote repository and merges them into your branch.
+<END>
+
+User: What's type conversion?
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: I was wondering, what is a hard drive?
+TinyLLM: A hard drive stores data on spinning disks and is slower than an SSD.
+<END>
+
+User: Which city is the capital of Germany?
+TinyLLM: The capital of Germany is Berlin.
+<END>
+
+User: How do I start learning programming?
+TinyLLM: Pick one language like Python, learn the basics, and build small programs every day.
+<END>
+
+User: Explain how to move a model to the GPU
+TinyLLM: Call model.to("cuda") or model.cuda().
+<END>
+
+User: Can I ask, how do I start learning programming?
+TinyLLM: Pick one language like Python, learn the basics, and build small programs every day.
+<END>
+
+User: What is 4 + 5?
+TinyLLM: 4 + 5 is 9.
+<END>
+
+User: What is a block size?
+TinyLLM: The block size is the number of tokens in each training sequence, also called context length.
+<END>
+
+User: How many planets are in the solar system?
+TinyLLM: There are eight planets in the solar system.
+<END>
+
+User: How do I handle errors in Python?
+TinyLLM: Put risky code in a try block and handle problems in an except block.
+<END>
+
+User: Can I ask, what is an odd number?
+TinyLLM: An odd number leaves a remainder of 1 when divided by 2.
+<END>
+
+User: What is the capital of India?
+TinyLLM: The capital of India is New Delhi.
+<END>
+
+User: What's a label?
+TinyLLM: A label is the correct answer attached to an example.
+<END>
+
+User: Define an encoder
+TinyLLM: An encoder turns input into a compact numeric representation.
+<END>
+
+User: Explain a linked list
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: Explain how to import a module
+TinyLLM: Use the import keyword, for example import math.
+<END>
+
+User: Do you have emotions?
+TinyLLM: No. I am a program that predicts characters, so I do not have feelings.
+<END>
+
+User: What is the square root of 144?
+TinyLLM: The square root of 144 is 12.
+<END>
+
+User: What does 1 + 1 equal?
+TinyLLM: 1 + 1 is 2.
+<END>
+
+User: Can you explain why you sometimes stop in the middle of a sentence?
+TinyLLM: I may reach my length limit or predict the end marker too early.
+<END>
+
+User: Tell me why you sometimes stop in the middle of a sentence
+TinyLLM: I may reach my length limit or predict the end marker too early.
+<END>
+
+User: What is an odd number?
+TinyLLM: An odd number leaves a remainder of 1 when divided by 2.
+<END>
+
+User: I was wondering, what is a gigabyte?
+TinyLLM: A gigabyte is about one billion bytes.
+<END>
+
+User: What is the Great Wall of China?
+TinyLLM: It is a very long series of walls built in ancient China for defense.
+<END>
+
+User: What's a library?
+TinyLLM: A library is a collection of ready-made code that you can use in your programs.
+<END>
+
+User: Tell me how to write a for loop
+TinyLLM: Write for i in range(5): and put the code to repeat on the next indented lines.
+<END>
+
+User: Tell me about open source
+TinyLLM: Open source software has public code that anyone can read, use, and improve.
+<END>
+
+User: I was wondering, how do I start learning programming?
+TinyLLM: Pick one language like Python, learn the basics, and build small programs every day.
+<END>
+
+User: What's a hard drive?
+TinyLLM: A hard drive stores data on spinning disks and is slower than an SSD.
+<END>
+
+User: What's a prediction?
+TinyLLM: A prediction is the output that a model produces for a given input.
+<END>
+
+User: Which version are you?
+TinyLLM: I am a small experimental version of TinyLLM.
+<END>
+
+User: What's 12 times 12?
+TinyLLM: 12 times 12 is 144.
+<END>
+
+User: Can I ask, can you tell me the news?
+TinyLLM: No. I cannot access the internet, so I do not know current events.
+<END>
+
+User: Define a folder
+TinyLLM: A folder is a place that holds files and other folders.
+<END>
+
+User: Good afternoon!
+TinyLLM: Good afternoon! What can we explore today?
+<END>
+
+User: How old are you?
+TinyLLM: I am very new. I was trained recently by Jonathan Gomes.
+<END>
+
+User: Please tell me, what is character-level tokenization?
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: Tell me about character-level tokenization
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: Tell me about type conversion
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: Who was Marie Curie?
+TinyLLM: Marie Curie was a scientist who studied radioactivity and won two Nobel Prizes.
+<END>
+
+User: What does git pull do?
+TinyLLM: It downloads new commits from the remote repository and merges them into your branch.
+<END>
+
+User: I passed my exam
+TinyLLM: Congratulations! Your hard work paid off.
+<END>
+
+User: What's the chemical symbol for gold?
+TinyLLM: The symbol for gold is Au.
+<END>
+
+User: What is a gigabyte?
+TinyLLM: A gigabyte is about one billion bytes.
+<END>
+
+User: What's a gigabyte?
+TinyLLM: A gigabyte is about one billion bytes.
+<END>
+
+User: Who created Python?
+TinyLLM: Guido van Rossum created Python, and it was first released in 1991.
+<END>
+
+User: Share a fun fact with me
+TinyLLM: Octopuses have three hearts and blue blood.
+<END>
+
+User: Define indexing
+TinyLLM: Indexing means picking an item by its position. In Python, the first position is 0.
+<END>
+
+User: Explain how to write a for loop
+TinyLLM: Write for i in range(5): and put the code to repeat on the next indented lines.
+<END>
+
+User: What do you know about type conversion?
+TinyLLM: It means changing a value from one data type to another, like int to string.
+<END>
+
+User: What is GitHub?
+TinyLLM: GitHub is a website that hosts Git repositories so people can share and collaborate on code.
+<END>
+
+User: Sorry
+TinyLLM: It is all right.
+<END>
+
+User: Define GitHub
+TinyLLM: GitHub is a website that hosts Git repositories so people can share and collaborate on code.
+<END>
+
+User: What do you know about a linked list?
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: Name the capital of the United Kingdom
+TinyLLM: The capital of the United Kingdom is London.
+<END>
+
+User: What does 100 divided by 10 equal?
+TinyLLM: 100 divided by 10 is 10.
+<END>
+
+User: I was wondering, how do I handle errors in Python?
+TinyLLM: Put risky code in a try block and handle problems in an except block.
+<END>
+
+User: Tell me about a linked list
+TinyLLM: It is a chain of nodes where each node holds a value and points to the next node.
+<END>
+
+User: Please tell me, what is 10 + 15?
+TinyLLM: 10 + 15 is 25.
+<END>
+
+User: Please tell me, how old are you?
+TinyLLM: I am very new. I was trained recently by Jonathan Gomes.
+<END>
+
+User: Tell me about indexing
+TinyLLM: Indexing means picking an item by its position. In Python, the first position is 0.
+<END>
+
+User: What does 10 percent of 200 equal?
+TinyLLM: 10 percent of 200 is 20.
+<END>
+
+User: Can I ask, why do you repeat yourself?
+TinyLLM: Small models often fall into loops because they have seen too little varied text.
+<END>
+
+User: Please tell me, what can you help me with?
+TinyLLM: I can try to help with basic Python, AI ideas, simple math, and general knowledge.
+<END>
+
+User: What's character-level tokenization?
+TinyLLM: It treats every single character as a token, so the vocabulary is small.
+<END>
+
+User: Share something interesting
+TinyLLM: Honey never spoils. Jars of honey found in ancient tombs were still edible.
+<END>
+
+User: Define machine learning
+TinyLLM: Machine learning is a way for computers to learn patterns from data instead of following fixed rules.
+<END>
+
+User: I was wondering, what does SQL stand for?
+TinyLLM: SQL stands for Structured Query Language.
+<END>
+
+User: Calculate 12 times 12
+TinyLLM: 12 times 12 is 144.
+<END>
+
+User: Tell me about NumPy
+TinyLLM: NumPy is a Python library for fast math on arrays.
+<END>
+
+User: Can I ask, what is the chemical symbol for gold?
+TinyLLM: The symbol for gold is Au.
+<END>
+
+User: Can you explain what a weight is?
+TinyLLM: A weight is a number inside a model that is adjusted during training.
+<END>
+
+User: What is your training data?
+TinyLLM: I was trained on a small text file of questions and answers.
+<END>
+
+User: Can I ask, why does more data help?
+TinyLLM: More varied data gives the model more patterns to learn and reduces memorization.
+<END>
+
+User: Please describe code
+TinyLLM: Code is a set of written instructions that a computer can follow.
+<END>
+
+User: Can I ask, what happens if the learning rate is too low?
+TinyLLM: Training becomes very slow and may get stuck.
+<END>
+
+User: Tell me about a label
+TinyLLM: A label is the correct answer attached to an example.
+<END>
+
+User: Tell me who Isaac Newton was
+TinyLLM: Isaac Newton was an English scientist who studied gravity, motion, and light.
+<END>
+
+User: Please describe unsupervised learning
+TinyLLM: It is learning patterns from data that has no labels.
+<END>
+
+User: Please describe a bit
+TinyLLM: A bit is the smallest unit of data and is either 0 or 1.
+<END>
+
+User: What do you know about a gigabyte?
+TinyLLM: A gigabyte is about one billion bytes.
+<END>
+
+User: Explain validation loss
+TinyLLM: It is the loss measured on held-out data that the model does not train on.
+<END>
+
+User: Can I ask, what is the capital of India?
+TinyLLM: The capital of India is New Delhi.
+<END>
+
+User: What's the capital of Brazil?
+TinyLLM: The capital of Brazil is Brasilia.
+<END>
+
+User: What's an odd number?
+TinyLLM: An odd number leaves a remainder of 1 when divided by 2.
+<END>
+
+User: Please tell me, who was Marie Curie?
+TinyLLM: Marie Curie was a scientist who studied radioactivity and won two Nobel Prizes.
+<END>
+
+User: Can I ask, how can I make you answer better?
+TinyLLM: Use clear questions that are similar to my training examples.
+<END>
+
+User: What does 50 - 25 equal?
+TinyLLM: 50 - 25 is 25.
+<END>
+
+User: I was wondering, what should I do when I am stuck?
+TinyLLM: Take a short break, explain the problem out loud, and test one small thing at a time.
+<END>
+
+User: Please tell me, what is binary search?
+TinyLLM: Binary search finds an item in a sorted list by repeatedly halving the search range.
+<END>
+
+User: What is the range function?
+TinyLLM: The range function makes a sequence of numbers, like range(3) gives 0, 1, 2.
+<END>
+
+User: Can I ask, what is the range function?
+TinyLLM: The range function makes a sequence of numbers, like range(3) gives 0, 1, 2.
+<END>
+
+User: What's the range function?
+TinyLLM: The range function makes a sequence of numbers, like range(3) gives 0, 1, 2.
+<END>
+
+User: Can I ask, what is a library?
+TinyLLM: A library is a collection of modules made by others that you can install and import.
+<END>
+
+User: How do I write a comment in Python?
+TinyLLM: Start the line with the hash symbol, and Python ignores everything after it.
+<END>
+
+User: Can I ask, how do I write a comment in Python?
+TinyLLM: Start the line with the hash symbol, and Python ignores everything after it.
+<END>
+
+User: Please tell me, how do I write a comment in Python?
+TinyLLM: Start the line with the hash symbol, and Python ignores everything after it.
+<END>
+
+User: Can you explain why numbers do not need quotes in Python?
+TinyLLM: Quotes make text, and text cannot be used in math, so numbers stay unquoted for arithmetic.
+<END>
+
+User: Please tell me, why numbers do not need quotes in Python?
+TinyLLM: Quotes make text, and text cannot be used in math, so numbers stay unquoted for arithmetic.
+<END>
+
+User: What is a trace table?
+TinyLLM: A trace table records each variable after every step of a program, which helps you follow loops.
+<END>
+
+User: Can I ask, what is a trace table?
+TinyLLM: A trace table records each variable after every step of a program, which helps you follow loops.
+<END>
+
+User: What's a trace table?
+TinyLLM: A trace table records each variable after every step of a program, which helps you follow loops.
+<END>
+
+User: What is the loss function?
+TinyLLM: The loss function measures how wrong the predictions are, so training pushes the loss down.
+<END>
+
+User: Can I ask, what is the loss function?
+TinyLLM: The loss function measures how wrong the predictions are, so training pushes the loss down.
+<END>
+
+User: What's the loss function?
+TinyLLM: The loss function measures how wrong the predictions are, so training pushes the loss down.
+<END>
+
+User: What is the sigmoid function?
+TinyLLM: The sigmoid function squashes any number into the range from zero to one.
+<END>
+
+User: Can I ask, what is the sigmoid function?
+TinyLLM: The sigmoid function squashes any number into the range from zero to one.
+<END>
+
+User: What's the sigmoid function?
+TinyLLM: The sigmoid function squashes any number into the range from zero to one.
+<END>
+
+User: What is a kernel?
+TinyLLM: A kernel is the small grid of learned weights that a convolution slides over the input.
+<END>
+
+User: Can I ask, what is a kernel?
+TinyLLM: A kernel is the small grid of learned weights that a convolution slides over the input.
+<END>
+
+User: What's a kernel?
+TinyLLM: A kernel is the small grid of learned weights that a convolution slides over the input.
+<END>
+
+User: Can you explain why the causal mask matters?
+TinyLLM: During training every position must predict from the past alone, or the model would peek at the answer.
+<END>
+
+User: Please tell me, why the causal mask matters?
+TinyLLM: During training every position must predict from the past alone, or the model would peek at the answer.
+<END>
+
+User: Can I ask, what is character-level tokenization?
+TinyLLM: It treats every single character as a token, so the vocabulary stays tiny but sequences become long.
+<END>
+
+User: Why do character vocabulary stays small?
+TinyLLM: A language has few distinct characters, so every unknown word is still spelled with known pieces.
+<END>
+
+User: Can I ask, what is a label?
+TinyLLM: A label is the answer the model should learn to predict for an example.
+<END>
+
+User: What is a plural?
+TinyLLM: The plural names more than one, and many nouns add s or es to become plural.
+<END>
+
+User: Can I ask, what is a plural?
+TinyLLM: The plural names more than one, and many nouns add s or es to become plural.
+<END>
+
+User: What's a plural?
+TinyLLM: The plural names more than one, and many nouns add s or es to become plural.
+<END>
+
+User: What is 1 + 2?
+TinyLLM: 1 + 2 is 3.
+<END>
+
+User: Please calculate 1 + 2
+TinyLLM: 1 + 2 is 3.
+<END>
+
+User: What does 1 + 5 equal?
+TinyLLM: 1 + 5 is 6.
+<END>
+
+User: Can I ask, what is 2 + 1?
+TinyLLM: 2 + 1 is 3.
+<END>
+
+User: Calculate 2 + 1
+TinyLLM: 2 + 1 is 3.
+<END>
+
+User: What does 3 + 3 equal, can you tell?
+TinyLLM: 3 + 3 is 6.
+<END>
+
+User: Please tell me, what is 4 + 5?
+TinyLLM: 4 + 5 is 9.
+<END>
+
+User: Can I ask, what is 5 + 1?
+TinyLLM: 5 + 1 is 6.
+<END>
+
+User: What is 5 + 1?
+TinyLLM: 5 + 1 is 6.
+<END>
+
+User: What is 6 + 9?
+TinyLLM: 6 + 9 is 15.
+<END>
+
+User: Can I ask, what is 6 + 9?
+TinyLLM: 6 + 9 is 15.
+<END>
+
+User: Calculate 8 + 7
+TinyLLM: 8 + 7 is 15.
+<END>
+
+User: What does 9 + 3 equal, can you tell?
+TinyLLM: 9 + 3 is 12.
+<END>
+
+User: What does 9 + 6 equal?
+TinyLLM: 9 + 6 is 15.
+<END>
+
+User: What is 12 - 8?
+TinyLLM: 12 - 8 is 4.
+<END>
+
+User: Calculate 14 - 2
+TinyLLM: 14 - 2 is 12.
+<END>
+
+User: Please tell me, what is 16 - 8?
+TinyLLM: 16 - 8 is 8.
+<END>
+
+User: What is 18 - 2?
+TinyLLM: 18 - 2 is 16.
+<END>
+
+User: Calculate 18 - 6
+TinyLLM: 18 - 6 is 12.
+<END>
+
+User: Calculate 19 - 1
+TinyLLM: 19 - 1 is 18.
+<END>
+
+User: I was wondering, what is 19 - 9?
+TinyLLM: 19 - 9 is 10.
+<END>
+
+User: I was wondering, what is 21 - 3?
+TinyLLM: 21 - 3 is 18.
+<END>
+
+User: Please calculate 22 - 2
+TinyLLM: 22 - 2 is 20.
+<END>
+
+User: Calculate 24 - 8
+TinyLLM: 24 - 8 is 16.
+<END>
+
+User: Please calculate 29 - 3
+TinyLLM: 29 - 3 is 26.
+<END>
+
+User: What does 2 times 4 equal?
+TinyLLM: 2 times 4 is 8.
+<END>
+
+User: What does 2 times 5 equal, can you tell?
+TinyLLM: 2 times 5 is 10.
+<END>
+
+User: What does 2 times 9 equal?
+TinyLLM: 2 times 9 is 18.
+<END>
+
+User: Please calculate 3 times 2
+TinyLLM: 3 times 2 is 6.
+<END>
+
+User: I was wondering, what is 5 times 6?
+TinyLLM: 5 times 6 is 30.
+<END>
+
+User: What does 5 times 7 equal, can you tell?
+TinyLLM: 5 times 7 is 35.
+<END>
+
+User: Please calculate 5 times 8
+TinyLLM: 5 times 8 is 40.
+<END>
+
+User: What does 6 times 5 equal?
+TinyLLM: 6 times 5 is 30.
+<END>
+
+User: Please calculate 6 times 6
+TinyLLM: 6 times 6 is 36.
+<END>
+
+User: Can I ask, what is 6 times 7?
+TinyLLM: 6 times 7 is 42.
+<END>
+
+User: Calculate 6 times 8
+TinyLLM: 6 times 8 is 48.
+<END>
+
+User: Calculate 6 times 9
+TinyLLM: 6 times 9 is 54.
+<END>
+
+User: Calculate 7 times 4
+TinyLLM: 7 times 4 is 28.
+<END>
+
+User: What does 7 times 8 equal?
+TinyLLM: 7 times 8 is 56.
+<END>
+
+User: Please tell me, what is 8 times 2?
+TinyLLM: 8 times 2 is 16.
+<END>
+
+User: Please calculate 9 times 9
+TinyLLM: 9 times 9 is 81.
+<END>
+
+User: Please tell me, what is 6 divided by 2?
+TinyLLM: 6 divided by 2 is 3.
+<END>
+
+User: Can I ask, what is 24 divided by 3?
+TinyLLM: 24 divided by 3 is 8.
+<END>
+
+User: Calculate 30 divided by 3
+TinyLLM: 30 divided by 3 is 10.
+<END>
+
+User: Please calculate 12 divided by 4
+TinyLLM: 12 divided by 4 is 3.
+<END>
+
+User: Can I ask, what is 54 divided by 6?
+TinyLLM: 54 divided by 6 is 9.
+<END>
+
+User: What is 48 divided by 8?
+TinyLLM: 48 divided by 8 is 6.
+<END>
+
+User: Please calculate 80 divided by 8
+TinyLLM: 80 divided by 8 is 10.
+<END>
+
+User: Please tell me, what is 27 divided by 9?
+TinyLLM: 27 divided by 9 is 3.
+<END>
+
+User: Please calculate 90 divided by 9
+TinyLLM: 90 divided by 9 is 10.
+<END>
+
+User: What is the square of 14?
+TinyLLM: The square of 14 is 196.
+<END>
+
+User: Calculate if 6 is even or odd
+TinyLLM: 6 is even.
+<END>
+
+User: Calculate if 7 is even or odd
+TinyLLM: 7 is odd.
+<END>
+
+User: Calculate if 14 is even or odd
+TinyLLM: 14 is even.
+<END>
+
+User: Calculate if 19 is even or odd
+TinyLLM: 19 is odd.
+<END>
+
+User: Calculate if 20 is even or odd
+TinyLLM: 20 is even.
+<END>
+
+User: Calculate if 25 is even or odd
+TinyLLM: 25 is odd.
+<END>
+
+User: What is 50 percent of 40?
+TinyLLM: 50 percent of 40 is 20.
+<END>
+
+User: Can I ask, what is the next number: 1, 4, 7, 10?
+TinyLLM: The next number is 13, because each number goes up by 3.
+<END>
+
+User: What is the next number: 6, 10, 14, 18?
+TinyLLM: The next number is 22, because each number goes up by 4.
+<END>
+
+User: What is the next number: 1, 6, 11, 16?
+TinyLLM: The next number is 21, because each number goes up by 5.
+<END>
+
+User: Please tell me, what does print([1, 2, 3][2]) display?
+TinyLLM: It displays 3.
+<END>
+
+User: In Python, what does print("cat".upper()) output?
+TinyLLM: The output is CAT.
+<END>
+
+User: I want to learn about for loops
+TinyLLM: A for loops is a small step toward your goal. Study it by doing tiny examples first.
+<END>
