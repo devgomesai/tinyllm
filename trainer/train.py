@@ -38,9 +38,9 @@ from trainer.dataset import (  # noqa: E402
 from trainer.model import TinyGPT  # noqa: E402
 from trainer.tokenizer import BPETokenizer, CharTokenizer, load_tokenizer  # noqa: E402
 
-# Kept for compatibility with the v1 inference interface (tests/testllm.py
-# imports MODEL_FILE and TinyGPT from trainer.train).
-MODEL_FILE = PROJECT_DIR / "model" / "mini_gpt.pt"
+# Kept for compatibility with the v1 inference interface. The baseline
+# checkpoint (v1 recipe trained on data/data.txt) is model/mini_gpt_v2.pt.
+MODEL_FILE = PROJECT_DIR / "model" / "mini_gpt_v2.pt"
 
 PROCESSED_DIR = PROJECT_DIR / "data" / "processed"
 

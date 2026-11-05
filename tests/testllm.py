@@ -117,7 +117,8 @@ def load_model(path: Path):
     if not path.exists():
         raise FileNotFoundError(
             f"Checkpoint not found: {path}\n"
-            "Train it with: uv run python trainer/train.py"
+            "Train it with: uv run python trainer/train.py  "
+            "(saves model/exp_char/best.pt when using --tokenizer char)"
         )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     checkpoint = torch.load(path, map_location=device, weights_only=False)

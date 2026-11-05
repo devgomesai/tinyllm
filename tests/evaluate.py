@@ -185,7 +185,8 @@ def run_generation_suite(model, tokenizer, device, items, greedy=True,
     if max_new_tokens is None:
         max_new_tokens = min(200, int(190 / (cpt if tokenizer.name == "bpe" else 1)) + 8)
     metrics = {"total": 0, "completion": 0, "ended_end": 0, "ended_marker": 0,
-               "ended_max_tokens": 0, "repetitive": 0, "malformed": 0,
+               "ended_max_tokens": 0, "ended_error": 0, "repetitive": 0,
+               "malformed": 0,
                "correct": 0, "unparseable": 0, "f1_sum": 0.0, "stem_hit": 0}
     rows = []
     for it in items:
@@ -283,9 +284,9 @@ def build_reworded_items(examples, n, seed=42):
 # Unseen-topic probes: each stem verified absent from data.txt + processed splits.
 UNSEEN_PROBES = [
     ("What is a capacitor?", "capacitor"),
-    ("What is a queue in computer science?", "queue"),
+    ("What is a sundial?", "sundial"),
     ("What is a database transaction?", "transaction"),
-    ("What is a stock market index?", "index"),
+    ("What is a lighthouse?", "lighthouse"),
     ("What is a hurricane?", "hurricane"),
     ("What is a compass?", "compass"),
     ("What is a telescope?", "telescope"),
@@ -384,9 +385,10 @@ def build_arithmetic_items(n, seed=42):
                 q, expected = f"What is {a} - {b}?", a - b
             else:
                 q, expected = f"What is {a} times {b}?", a * b
+            expr = q[len("What is "):-1]
             items.append({
                 "question": q,
-                "reference": q.rstrip("?.") + f" is {expected}.",
+                "reference": f"{expr} is {expected}.",
                 "expected": expected,
                 "difficulty": tier_name,
             })
