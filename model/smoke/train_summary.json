@@ -1,0 +1,39 @@
+{
+  "out_dir": "C:\\Users\\WIN11\\Desktop\\JonathanGomes\\TinyLLM\\model\\smoke",
+  "tokenizer": "bpe",
+  "vocab_size": 487,
+  "n_params": 3474919,
+  "best_val_loss": 4.715199725413105,
+  "iters": 30,
+  "batch_size_final": 32,
+  "oom_events": 0,
+  "elapsed_s": 3.8,
+  "peak_gpu_memory_gb": 0.348,
+  "config": {
+    "block_size": 256,
+    "n_embd": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dropout": 0.1
+  },
+  "args": {
+    "tokenizer": "bpe",
+    "bpe_merges": 400,
+    "iters": 30,
+    "batch_size": 32,
+    "block_size": 256,
+    "eval_interval": 10,
+    "lr": 0.0006,
+    "min_lr_frac": 0.1,
+    "warmup_iters": 200,
+    "n_embd": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "dropout": 0.1,
+    "grad_clip": 1.0,
+    "seed": 42,
+    "evaluate_batch": 64,
+    "out_dir": "C:\\Users\\WIN11\\Desktop\\JonathanGomes\\TinyLLM\\model\\smoke",
+    "smoke": true
+  }
+}
