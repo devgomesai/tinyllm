@@ -179,8 +179,8 @@ def main():
     parser.add_argument(
         "--prompt", type=str, default=None, help="Generate from a prompt and exit"
     )
-    parser.add_argument("--model", type=Path, default=PROJECT_DIR / "model" / "mini_gpt.pt",
-                        help="Checkpoint path; default is the v1 baseline")
+    parser.add_argument("--model", type=Path, default=PROJECT_DIR / "model" / "mini_gpt_v2.pt",
+                        help="Checkpoint path; default is the data.txt baseline")
     parser.add_argument("--tokens", type=int, default=200, help=tk_help)
     parser.add_argument("--temperature", type=float, default=0.6,
                         help="Sampling temperature; 0 = greedy decoding")

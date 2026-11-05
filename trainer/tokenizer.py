@@ -119,7 +119,9 @@ class BPETokenizer:
     def build(cls, text: str, n_merges: int = 400, seed: int = 42) -> "BPETokenizer":
         specials = ["<END>", "<PAD>"]
         plain = text.replace("<END>", " ")
-        base_chars = sorted(set(plain))
+        # keep the <END> letters in the base alphabet so that mixed-case text
+        # round-trips even when the chars occur only inside the marker
+        base_chars = sorted(set(plain) | set("<END>"))
         # Pretokenize and count each piece once-weighted by occurrences.
         piece_counts: Counter[tuple[str, ...]] = Counter()
         for piece in _pretokens(plain):

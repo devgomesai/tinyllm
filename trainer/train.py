@@ -154,7 +154,7 @@ def main():
         if args.out_dir is None:
             args.out_dir = PROJECT_DIR / "model" / "smoke"
 
-    out_dir = args.out_dir or PROJECT_DIR / "model" / f"v2_{args.tokenizer}"
+    out_dir = args.out_dir or PROJECT_DIR / "model" / f"exp_{args.tokenizer}"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     if not torch.cuda.is_available():
