@@ -118,7 +118,7 @@ def load_model(path: Path):
         raise FileNotFoundError(
             f"Checkpoint not found: {path}\n"
             "Train it with: uv run python trainer/train.py  "
-            "(saves model/exp_char/best.pt when using --tokenizer char)"
+            "(saves model/v2/char/best.pt when using --tokenizer char)"
         )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     checkpoint = torch.load(path, map_location=device, weights_only=False)
@@ -180,8 +180,9 @@ def main():
     parser.add_argument(
         "--prompt", type=str, default=None, help="Generate from a prompt and exit"
     )
-    parser.add_argument("--model", type=Path, default=PROJECT_DIR / "model" / "mini_gpt_v2.pt",
-                        help="Checkpoint path; default is the data.txt baseline")
+    parser.add_argument("--model", type=Path,
+                        default=PROJECT_DIR / "model" / "v1" / "mini_gpt_v2.pt",
+                        help="Checkpoint path (default: preserved v1 baseline)")
     parser.add_argument("--tokens", type=int, default=200, help=tk_help)
     parser.add_argument("--temperature", type=float, default=0.6,
                         help="Sampling temperature; 0 = greedy decoding")

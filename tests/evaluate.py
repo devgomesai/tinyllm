@@ -528,7 +528,7 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--model", type=Path,
-                        default=PROJECT_DIR / "model" / "mini_gpt_v2.pt",
+                        default=PROJECT_DIR / "model" / "v1" / "mini_gpt_v2.pt",
                         help="Checkpoint to evaluate")
     parser.add_argument("--n-per-suite", type=int, default=40)
     parser.add_argument("--seed", type=int, default=42)

@@ -38,9 +38,10 @@ from trainer.dataset import (  # noqa: E402
 from trainer.model import TinyGPT  # noqa: E402
 from trainer.tokenizer import BPETokenizer, CharTokenizer, load_tokenizer  # noqa: E402
 
-# Kept for compatibility with the v1 inference interface. The baseline
-# checkpoint (v1 recipe trained on data/data.txt) is model/mini_gpt_v2.pt.
-MODEL_FILE = PROJECT_DIR / "model" / "mini_gpt_v2.pt"
+# Kept for compatibility with the v1 inference interface. The preserved
+# baseline checkpoints live in model/v1/ (mini_gpt_v2.pt = v1 recipe on
+# data/data.txt, mini_gpt_v1.pt = exact data_v1.txt checkpoint).
+MODEL_FILE = PROJECT_DIR / "model" / "v1" / "mini_gpt_v2.pt"
 
 PROCESSED_DIR = PROJECT_DIR / "data" / "processed"
 
@@ -154,7 +155,7 @@ def main():
         if args.out_dir is None:
             args.out_dir = PROJECT_DIR / "model" / "smoke"
 
-    out_dir = args.out_dir or PROJECT_DIR / "model" / f"exp_{args.tokenizer}"
+    out_dir = args.out_dir or PROJECT_DIR / "model" / "v2" / args.tokenizer
     out_dir.mkdir(parents=True, exist_ok=True)
 
     if not torch.cuda.is_available():
