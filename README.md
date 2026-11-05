@@ -32,7 +32,7 @@ What the project contains:
 - Answer-masked loss: the model is only scored on the `TinyLLM:` reply, not on the `User:` question text.
 - A training loop with periodic training and validation loss evaluation, cosine learning-rate decay and gradient clipping.
 - A checkpoint holding the weights, vocabulary and model configuration. With `--keep best` it holds the best-validation weights rather than the final ones.
-- A terminal CLI that streams generated replies character by character, with temperature and top-k sampling.
+- A terminal CLI that streams generated replies character by character with a paced typewriter effect, plus temperature and top-k sampling.
 
 ## Quick Start: Better Results
 
@@ -238,7 +238,7 @@ uv run python tests/testllm.py --prompt "Explain elif" --tokens 200 --temperatur
 
 In interactive mode, type a prompt and press Enter. The same `--tokens`, `--temperature` and `--top-k` values apply to every prompt. Type `q`, `quit`, `e` or `exit` to leave. Ctrl+C interrupts a generation.
 
-The interface uses [Rich](https://github.com/Textualize/rich) for colored output. Generated text is streamed to the terminal one character at a time. The script uses the GPU when CUDA is available in the installed PyTorch build, and the CPU otherwise.
+The interface uses [Rich](https://github.com/Textualize/rich) for colored output. Generated text is streamed to the terminal one character at a time, with a short pause after each chunk that creates a typewriter effect; the pacing is the `STREAM_DELAY` constant at the top of [`tests/testllm.py`](tests/testllm.py), currently 0.09 seconds, which you can lower or set to 0 to speed the output up. The script uses the GPU when CUDA is available in the installed PyTorch build, and the CPU otherwise.
 
 ### Temperature and top-k
 

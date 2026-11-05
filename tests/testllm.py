@@ -1,5 +1,6 @@
 import argparse
 import sys
+import time
 from pathlib import Path
 
 import torch
@@ -24,6 +25,9 @@ PINK = "#bb9af7"  # violet
 ERROR = "#f7768e"  # rose
 MUTED = "#565f89"  # slate
 TEXT = "#c0caf5"  # soft white
+
+# Streaming pacing: seconds to pause after each streamed chunk.
+STREAM_DELAY = 0.09
 
 console = Console(
     theme=Theme(
@@ -107,6 +111,19 @@ def load_model():
     return model, checkpoint["stoi"], checkpoint["itos"], device
 
 
+MARKERS = ("<END>", "\nUser:", "\nTinyLLM:")
+
+
+def marker_hold_len(text):
+    """Length of the trailing text that could still become a marker."""
+    longest = max(len(marker) for marker in MARKERS)
+    for length in range(min(longest - 1, len(text)), 0, -1):
+        tail = text[-length:]
+        if any(marker.startswith(tail) for marker in MARKERS):
+            return length
+    return 0
+
+
 @torch.inference_mode()
 def stream_response(
     prompt,
@@ -133,6 +150,8 @@ def stream_response(
     )
 
     generated = ""
+    printed = 0  # characters already streamed to the console
+    started = False  # whether the first non-whitespace char has been shown
 
     for _ in range(max_new_tokens):
         logits = model(context[:, -model.block_size :])
@@ -164,11 +183,8 @@ def stream_response(
         generated += next_char
 
         # Stop at the first conversation boundary.
-        markers = ("<END>", "\nUser:", "\nTinyLLM:")
         matches = [
-            (generated.find(marker), marker)
-            for marker in markers
-            if marker in generated
+            (generated.find(marker), marker) for marker in MARKERS if marker in generated
         ]
 
         if matches:
@@ -176,14 +192,47 @@ def stream_response(
             generated = generated[:position]
             break
 
-    generated = generated.lstrip()
+        # Hold back any trailing chars that might be the start of a marker,
+        # stream everything before them out immediately.
+        safe_end = len(generated) - marker_hold_len(generated)
+        chunk = generated[printed:safe_end]
 
-    console.print(
-        generated or "(No response generated.)",
-        style=TEXT,
-        markup=False,
-        highlight=False,
-    )
+        if not started:
+            stripped = chunk.lstrip()
+            if not stripped:
+                printed = safe_end
+                continue
+            chunk = stripped
+            started = True
+
+        if chunk:
+            console.print(
+                chunk,
+                style=TEXT,
+                end="",
+                markup=False,
+                highlight=False,
+                soft_wrap=True,
+            )
+            printed = safe_end
+            time.sleep(STREAM_DELAY)
+
+    # Flush whatever is still held back (partial markers at the end are real text).
+    chunk = generated[printed:]
+
+    if not started:
+        chunk = chunk.lstrip()
+
+    if chunk:
+        console.print(
+            chunk,
+            style=TEXT,
+            end="",
+            markup=False,
+            highlight=False,
+            soft_wrap=True,
+        )
+        console.print()
 
 
 def main():
