@@ -147,7 +147,7 @@ def run_prompt(model, tokenizer, device, prompt, args, sink):
 
 
 def stream_prompt(prompt, model, tokenizer, device, args, sink):
-    console.print(Text("tiny ", style=f"bold {AI}"), end="")
+    console.print(Text("tiny: ", style=f"bold {AI}"), end="")
 
     def stream(chunk):
         sink(chunk)

@@ -101,7 +101,8 @@ class Example:
 def parse_pairs(text: str, source: str = "data.txt") -> tuple[list[Example], dict]:
     """Parse text split into <END>-terminated blocks into Examples."""
     examples: list[Example] = []
-    stats = Counter(source=source)
+    stats = Counter()
+    stats["source"] = source
     for block in text.split(END_TAG):
         block = block.strip("\n")
         if not block.strip():
